@@ -8,8 +8,13 @@
       "type": "breadcrumbs",
       "data": {
         "items": [
-          { "label": "Главная", "href": "/" },
-          { "label": "Продукция" }
+          {
+            "label": "Главная",
+            "href": "/"
+          },
+          {
+            "label": "Продукция"
+          }
         ]
       }
     },
@@ -43,13 +48,17 @@
           {
             "title": "Стеклопакеты",
             "desc": "Однокамерные и двухкамерные, с энергосбережением, аргоном, триплексом. Подбираем формулу под задачу: от стандартного остекления до энергосберегающих пакетов для загородного дома. Изготовление от 3 рабочих дней. Скидки от 50 м².",
-            "price": "от 1 200",
+            "price": "от 900",
             "price_unit": "р/м²",
             "badge": "Энергосбережение",
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/steklopakety.html", "title": "Расчёт стоимости стеклопакетов", "subtitle": "Калькулятор на {parent_site}" }
+            "link": {
+              "href": "{parent_site_url}/steklopakety.html",
+              "title": "Расчёт стоимости стеклопакетов",
+              "subtitle": "Калькулятор на {parent_site}"
+            }
           },
           {
             "title": "Зеркала",
@@ -60,7 +69,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/zerkala.html", "title": "Зеркала на заказ", "subtitle": "Каталог форм и размеров" }
+            "link": {
+              "href": "{parent_site_url}/zerkala.html",
+              "title": "Зеркала на заказ",
+              "subtitle": "Каталог форм и размеров"
+            }
           },
           {
             "title": "Триплекс",
@@ -71,7 +84,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/tripleks.html", "title": "Триплекс", "subtitle": "Каталог, состав, цены" }
+            "link": {
+              "href": "{parent_site_url}/tripleks.html",
+              "title": "Триплекс",
+              "subtitle": "Каталог, состав, цены"
+            }
           },
           {
             "title": "Закалённое стекло",
@@ -82,7 +99,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/zakalennoe-steklo.html", "title": "Закалённое стекло", "subtitle": "Каталог изделий и цены" }
+            "link": {
+              "href": "{parent_site_url}/zakalennoe-steklo.html",
+              "title": "Закалённое стекло",
+              "subtitle": "Каталог изделий и цены"
+            }
           },
           {
             "title": "Стеклянные двери",
@@ -93,7 +114,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/izdelia.html", "title": "Изделия из стекла", "subtitle": "Полный каталог продукции" }
+            "link": {
+              "href": "{parent_site_url}/izdelia.html",
+              "title": "Изделия из стекла",
+              "subtitle": "Полный каталог продукции"
+            }
           },
           {
             "title": "Офисные перегородки",
@@ -104,7 +129,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/partition.html", "title": "Офисные перегородки", "subtitle": "Проекты и цены" }
+            "link": {
+              "href": "{parent_site_url}/partition.html",
+              "title": "Офисные перегородки",
+              "subtitle": "Проекты и цены"
+            }
           },
           {
             "title": "Полки и столешницы",
@@ -154,22 +183,34 @@
           {
             "title": "Каталог стекла",
             "desc": "Листовое стекло всех видов — от оконного до витринного",
-            "link": { "href": "/steklo/", "title": "Стекло" }
+            "link": {
+              "href": "/steklo/",
+              "title": "Стекло"
+            }
           },
           {
             "title": "Услуги",
             "desc": "Резка, закалка, обработка кромки, изготовление триплекса",
-            "link": { "href": "/uslugi/", "title": "Услуги" }
+            "link": {
+              "href": "/uslugi/",
+              "title": "Услуги"
+            }
           },
           {
             "title": "Доставка",
             "desc": "Стоимость и условия доставки в {city_accusative}",
-            "link": { "href": "/dostavka/", "title": "Доставка" }
+            "link": {
+              "href": "/dostavka/",
+              "title": "Доставка"
+            }
           },
           {
             "title": "Контакты",
             "desc": "Телефон, email, адрес производства",
-            "link": { "href": "/kontakty/", "title": "Контакты" }
+            "link": {
+              "href": "/kontakty/",
+              "title": "Контакты"
+            }
           }
         ]
       }
