@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /_data/
+Disallow: /_inc/
+
+Sitemap: https://noginsk.steklotrade.com/sitemap.xml

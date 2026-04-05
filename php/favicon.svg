@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#636e72"/>
+      <stop offset="100%" stop-color="#2d3436"/>
+    </linearGradient>
+  </defs>
+  <!-- Diamond/glass shard shape -->
+  <polygon points="16,1 28,12 16,31 4,12" fill="url(#g)"/>
+  <!-- Light reflection on glass -->
+  <polygon points="16,1 20,12 16,24 12,12" fill="#636e72" opacity="0.4"/>
+  <line x1="10" y1="8" x2="14" y2="6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+</svg>

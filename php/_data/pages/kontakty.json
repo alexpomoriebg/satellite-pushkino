@@ -1,0 +1,54 @@
+{
+  "seo": {
+    "title": "Контакты {company_name} в {city_prepositional} — купить стекло, заказать доставку",
+    "description": "Купить стекло в {city_prepositional}: телефон, email, доставка. Стекло на заказ, резка стекла и зеркал, стеклопакеты. Доставка стекла в {city_accusative}, самовывоз из Электростали."
+  },
+  "sections": [
+    {
+      "type": "breadcrumbs",
+      "data": {
+        "items": [
+          { "label": "Главная", "href": "/" },
+          { "label": "Контакты" }
+        ]
+      }
+    },
+    {
+      "type": "hero",
+      "data": {
+        "tag": null,
+        "h1": "Контакты в {city_prepositional}",
+        "subtitle": "Купить стекло, зеркала и стеклопакеты с доставкой — звоните или пишите"
+      }
+    },
+    {
+      "type": "contact_grid",
+      "data": {
+        "columns": [
+          {
+            "cards": [
+              { "type": "phones", "heading": "Телефон" },
+              { "type": "email", "heading": "Email" },
+              { "type": "delivery", "heading": "Доставка" }
+            ]
+          },
+          {
+            "cards": [
+              { "type": "no_office", "heading": "Работаем без офиса в {city_prepositional}" },
+              { "type": "parent_link", "heading": "Полный каталог и цены" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "data": {
+        "heading": "Купить стекло с доставкой в {city_accusative}",
+        "text": "Позвоните — рассчитаем стоимость стекла, зеркал или стеклопакетов и организуем доставку",
+        "button_label": "Позвонить {phone}",
+        "button_href": "tel:{phone_raw}"
+      }
+    }
+  ]
+}

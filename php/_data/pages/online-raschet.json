@@ -1,0 +1,89 @@
+{
+  "seo": {
+    "title": "Онлайн-расчёт стоимости стекла и стеклопакетов | {company_name}",
+    "description": "Рассчитайте стоимость стекла, зеркал и стеклопакетов онлайн. Цены от производителя, бесплатный расчёт, доставка в {city_accusative}."
+  },
+  "sections": [
+    {
+      "type": "breadcrumbs",
+      "data": {
+        "items": [
+          { "label": "Главная", "href": "/" },
+          { "label": "Онлайн-расчёт" }
+        ]
+      }
+    },
+    {
+      "type": "hero",
+      "data": {
+        "tag": null,
+        "h1": "Онлайн-расчёт стоимости",
+        "subtitle": "Калькуляторы и каталоги работают круглосуточно. Рассчитайте стоимость, сравните характеристики и оформите заказ — без звонков и ожидания."
+      }
+    },
+    {
+      "type": "card_grid",
+      "data": {
+        "heading": null,
+        "subtitle": null,
+        "columns": 2,
+        "alt_bg": false,
+        "cards": [
+          {
+            "title": "Конфигуратор стекла для душевой",
+            "desc": "Выберите тип душевой кабины, введите размеры — конфигуратор подберёт стекло, рассчитает площадь и покажет стоимость.",
+            "price": null,
+            "price_unit": null,
+            "badge": "Бесплатно",
+            "image": null,
+            "image_alt": null,
+            "specs": null,
+            "link": { "href": "/dushevye/", "title": "Открыть конфигуратор", "subtitle": null }
+          },
+          {
+            "title": "Калькулятор стеклопакетов",
+            "desc": "Рассчитайте стоимость стеклопакета онлайн: выберите формулу, размеры, дополнительные опции (триплекс, аргон, энергосбережение). Мгновенный результат.",
+            "price": null,
+            "price_unit": null,
+            "badge": null,
+            "image": null,
+            "image_alt": null,
+            "specs": null,
+            "link": { "href": "{parent_site_url}/steklopakety.html", "title": "Расчёт стоимости", "subtitle": "{parent_site}" }
+          },
+          {
+            "title": "Каталог листового стекла",
+            "desc": "Все виды стекла с актуальными ценами: прозрачное, тонированное, матовое, узорчатое, армированное, осветлённое, закалённое. Фильтры по толщине и типу.",
+            "price": null,
+            "price_unit": null,
+            "badge": null,
+            "image": null,
+            "image_alt": null,
+            "specs": null,
+            "link": { "href": "{parent_site_url}/steklo.html", "title": "Открыть каталог", "subtitle": "{parent_site}" }
+          },
+          {
+            "title": "Каталог зеркал",
+            "desc": "Серебро, бронза, графит, антик, осветлённое. Выбор размеров, форм, обработки кромки. Цены с учётом фацета и сверления.",
+            "price": null,
+            "price_unit": null,
+            "badge": null,
+            "image": null,
+            "image_alt": null,
+            "specs": null,
+            "link": { "href": "{parent_site_url}/zerkala.html", "title": "Открыть каталог", "subtitle": "{parent_site}" }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "data": {
+        "heading": "Нужна помощь с расчётом?",
+        "text": "Если у вас нестандартный заказ или вы не уверены в выборе — позвоните. Наши специалисты рассчитают стоимость и подберут оптимальное решение.",
+        "button_label": "{phone}",
+        "button_href": "tel:{phone_raw}"
+      }
+    }
+  ]
+}
