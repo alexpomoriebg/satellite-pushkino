@@ -78,15 +78,15 @@
 
   "glass_types": [
     {"id": "clear_6",   "name": "Прозрачное 6 мм",   "thickness": 6,  "type": "clear",   "price_m2": 3100, "desc": "Шторки на ванну, небольшие панели"},
-    {"id": "clear_8",   "name": "Прозрачное 8 мм",   "thickness": 8,  "type": "clear",   "price_m2": 3700, "desc": "Стандарт для душевых", "popular": true},
-    {"id": "clear_10",  "name": "Прозрачное 10 мм",  "thickness": 10, "type": "clear",   "price_m2": 4200, "desc": "Большие панели, walk-in"},
+    {"id": "clear_8",   "name": "Прозрачное 8 мм",   "thickness": 8,  "type": "clear",   "price_m2": 4300, "desc": "Стандарт для душевых", "popular": true},
+    {"id": "clear_10",  "name": "Прозрачное 10 мм",  "thickness": 10, "type": "clear",   "price_m2": 5050, "desc": "Большие панели, walk-in"},
     {"id": "frost_6",   "name": "Матовое (сатинат) 6 мм",  "thickness": 6,  "type": "frosted", "price_m2": 3600, "desc": "Непрозрачное, для приватности"},
-    {"id": "frost_8",   "name": "Матовое (сатинат) 8 мм",  "thickness": 8,  "type": "frosted", "price_m2": 4200, "desc": "Приватность + стандартная прочность"},
-    {"id": "frost_10",  "name": "Матовое (сатинат) 10 мм", "thickness": 10, "type": "frosted", "price_m2": 4700, "desc": "Премиум матовое"},
+    {"id": "frost_8",   "name": "Матовое (сатинат) 8 мм",  "thickness": 8,  "type": "frosted", "price_m2": 4800, "desc": "Приватность + стандартная прочность"},
+    {"id": "frost_10",  "name": "Матовое (сатинат) 10 мм", "thickness": 10, "type": "frosted", "price_m2": 5550, "desc": "Премиум матовое"},
     {"id": "bronze_6",  "name": "Бронза 6 мм",   "thickness": 6,  "type": "bronze",  "price_m2": 3800, "desc": "Тёплый оттенок, декор"},
-    {"id": "bronze_8",  "name": "Бронза 8 мм",   "thickness": 8,  "type": "bronze",  "price_m2": 4400, "desc": "Бронзовый тон + стандартная прочность"},
+    {"id": "bronze_8",  "name": "Бронза 8 мм",   "thickness": 8,  "type": "bronze",  "price_m2": 5000, "desc": "Бронзовый тон + стандартная прочность"},
     {"id": "gray_6",    "name": "Серое 6 мм",    "thickness": 6,  "type": "gray",    "price_m2": 3800, "desc": "Холодный оттенок, минимализм"},
-    {"id": "gray_8",    "name": "Серое 8 мм",    "thickness": 8,  "type": "gray",    "price_m2": 4400, "desc": "Серый тон + стандартная прочность"}
+    {"id": "gray_8",    "name": "Серое 8 мм",    "thickness": 8,  "type": "gray",    "price_m2": 5000, "desc": "Серый тон + стандартная прочность"}
   ],
 
   "processing": {
