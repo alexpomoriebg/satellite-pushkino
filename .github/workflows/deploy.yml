@@ -1,0 +1,61 @@
+name: Check & Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Опасные файлы
+        run: |
+          DANGEROUS=$(git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -iE '\.(env|sql|pem|key)$|debug\.log' || true)
+          if [ -n "$DANGEROUS" ]; then
+            echo "::error::ЗАБЛОКИРОВАНО — опасные файлы: $DANGEROUS"
+            exit 1
+          fi
+
+      - name: PHP синтаксис (PHP 7.4)
+        uses: docker://php:7.4-cli
+        with:
+          entrypoint: sh
+          args: -c "find /github/workspace/php -name '*.php' -not -path '*/vendor/*' | xargs -n1 php -l"
+
+      - name: PHP 7.4 совместимость
+        run: |
+          composer global require --no-interaction \
+            "squizlabs/php_codesniffer=*" \
+            "phpcompatibility/php-compatibility=*"
+          COMPOSER_HOME="$HOME/.config/composer"
+          [ -d "$COMPOSER_HOME" ] || COMPOSER_HOME="$HOME/.composer"
+          "$COMPOSER_HOME/vendor/bin/phpcs" \
+            --config-set installed_paths "$COMPOSER_HOME/vendor/phpcompatibility/php-compatibility"
+          "$COMPOSER_HOME/vendor/bin/phpcs" \
+            --standard=PHPCompatibility \
+            --runtime-set testVersion 7.4- \
+            --extensions=php \
+            --ignore=*/vendor/* \
+            -s ./php/_inc/ ./php/index.php
+
+  deploy:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: ./php/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
