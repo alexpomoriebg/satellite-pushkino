@@ -8,8 +8,13 @@
       "type": "breadcrumbs",
       "data": {
         "items": [
-          { "label": "Главная", "href": "/" },
-          { "label": "Услуги" }
+          {
+            "label": "Главная",
+            "href": "/"
+          },
+          {
+            "label": "Услуги"
+          }
         ]
       }
     },
@@ -49,7 +54,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/rezka.html", "title": "Резка стекла. Расчёт стоимости онлайн", "subtitle": "Актуальные цены на {parent_site}" }
+            "link": {
+              "href": "{parent_site_url}/rezka.html",
+              "title": "Резка стекла. Расчёт стоимости онлайн",
+              "subtitle": "Актуальные цены на {parent_site}"
+            }
           },
           {
             "title": "Шлифовка и полировка кромки",
@@ -87,13 +96,17 @@
           {
             "title": "Закалка стекла",
             "desc": "Нагрев до 650°C с резким охлаждением. Стекло становится в 5 раз прочнее, а при разрушении рассыпается на мелкие безопасные крошки вместо острых осколков. Максимальный размер: 2100×3600 мм. Обязательна для душевых, дверей, ограждений.",
-            "price": "от 2 500",
+            "price": "от 3 100",
             "price_unit": "р/м²",
             "badge": null,
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/zakalennoe-steklo.html", "title": "Закалённое стекло", "subtitle": "Каталог изделий и цены" }
+            "link": {
+              "href": "{parent_site_url}/zakalennoe-steklo.html",
+              "title": "Закалённое стекло",
+              "subtitle": "Каталог изделий и цены"
+            }
           },
           {
             "title": "Изготовление триплекса",
@@ -104,7 +117,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/tripleks.html", "title": "Триплекс", "subtitle": "Каталог, состав, цены" }
+            "link": {
+              "href": "{parent_site_url}/tripleks.html",
+              "title": "Триплекс",
+              "subtitle": "Каталог, состав, цены"
+            }
           },
           {
             "title": "Пескоструйная обработка",
@@ -140,7 +157,10 @@
           "Готовые изделия упаковываем в гофрокартон и пенополиэтилен, перевозим на специальных пирамидах. По {city_dative} и ближайшим городам — ежедневно.",
           "Бесплатная доставка при заказе от 10 000 р."
         ],
-        "link": { "href": "/dostavka/", "text": "Подробнее о доставке" }
+        "link": {
+          "href": "/dostavka/",
+          "text": "Подробнее о доставке"
+        }
       }
     }
   ]
