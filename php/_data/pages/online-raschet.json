@@ -8,8 +8,13 @@
       "type": "breadcrumbs",
       "data": {
         "items": [
-          { "label": "Главная", "href": "/" },
-          { "label": "Онлайн-расчёт" }
+          {
+            "label": "Главная",
+            "href": "/"
+          },
+          {
+            "label": "Онлайн-расчёт"
+          }
         ]
       }
     },
@@ -38,7 +43,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "/dushevye/", "title": "Открыть конфигуратор", "subtitle": null }
+            "link": {
+              "href": "/dushevye/",
+              "title": "Открыть конфигуратор",
+              "subtitle": null
+            }
           },
           {
             "title": "Калькулятор стеклопакетов",
@@ -49,7 +58,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/steklopakety.html", "title": "Расчёт стоимости", "subtitle": "{parent_site}" }
+            "link": {
+              "href": "{parent_site_url}/steklopakety.html",
+              "title": "Расчёт стоимости",
+              "subtitle": "{parent_site}"
+            }
           },
           {
             "title": "Каталог листового стекла",
@@ -60,7 +73,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/steklo.html", "title": "Открыть каталог", "subtitle": "{parent_site}" }
+            "link": {
+              "href": "{parent_site_url}/steklo.html",
+              "title": "Открыть каталог",
+              "subtitle": "{parent_site}"
+            }
           },
           {
             "title": "Каталог зеркал",
@@ -71,7 +88,46 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": { "href": "{parent_site_url}/zerkala.html", "title": "Открыть каталог", "subtitle": "{parent_site}" }
+            "link": {
+              "href": "{parent_site_url}/zerkala.html",
+              "title": "Открыть каталог",
+              "subtitle": "{parent_site}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "card_grid",
+      "data": {
+        "heading": "Смотрите также",
+        "subtitle": null,
+        "columns": 3,
+        "alt_bg": true,
+        "cards": [
+          {
+            "title": "Каталог стекла",
+            "desc": "Все виды листового стекла с ценами",
+            "link": {
+              "href": "/steklo/",
+              "title": "Каталог стекла"
+            }
+          },
+          {
+            "title": "Доставка",
+            "desc": "Стоимость и условия доставки в {city_accusative}",
+            "link": {
+              "href": "/dostavka/",
+              "title": "Доставка"
+            }
+          },
+          {
+            "title": "Контакты",
+            "desc": "Телефон, email и как мы работаем",
+            "link": {
+              "href": "/kontakty/",
+              "title": "Контакты"
+            }
           }
         ]
       }

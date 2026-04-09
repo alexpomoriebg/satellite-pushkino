@@ -34,9 +34,40 @@
           },
           {
             "cards": [
-              { "type": "no_office", "heading": "Работаем без офиса в {city_prepositional}" },
+              { "type": "business_info", "heading": "Как мы работаем" },
               { "type": "parent_link", "heading": "Полный каталог и цены" }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "card_grid",
+      "data": {
+        "heading": "Полезные разделы",
+        "subtitle": null,
+        "columns": 4,
+        "alt_bg": true,
+        "cards": [
+          {
+            "title": "Каталог стекла",
+            "desc": "Все виды листового стекла с ценами — от 290 ₽/м²",
+            "link": { "href": "/steklo/", "title": "Каталог стекла" }
+          },
+          {
+            "title": "Онлайн-расчёт",
+            "desc": "Рассчитайте стоимость стекла и стеклопакетов онлайн",
+            "link": { "href": "/online-raschet/", "title": "Онлайн-расчёт" }
+          },
+          {
+            "title": "Доставка",
+            "desc": "Условия и стоимость доставки стекла в {city_accusative}",
+            "link": { "href": "/dostavka/", "title": "Доставка" }
+          },
+          {
+            "title": "Продукция",
+            "desc": "Полный каталог: стеклопакеты, зеркала, триплекс, закалка",
+            "link": { "href": "/produkciya/", "title": "Продукция" }
           }
         ]
       }

@@ -355,11 +355,12 @@ function render_contact_grid(array $data, int $si = 0): void
 <?php
         $type = $card['type'] ?? '';
         switch ($type) {
-            case 'phones':      _render_contact_phones($c, $card); break;
-            case 'email':       _render_contact_email($c, $card); break;
-            case 'delivery':    _render_contact_delivery($c, $card); break;
-            case 'notice':      _render_contact_notice($c, $card); break;
-            case 'parent_link': _render_contact_parent_link($c, $card); break;
+            case 'phones':        _render_contact_phones($c, $card); break;
+            case 'email':         _render_contact_email($c, $card); break;
+            case 'delivery':      _render_contact_delivery($c, $card); break;
+            case 'notice':        _render_contact_notice($c, $card); break;
+            case 'business_info': _render_contact_business_info($c, $card); break;
+            case 'parent_link':   _render_contact_parent_link($c, $card); break;
         }
 ?>
 <?php endforeach; ?>
@@ -413,6 +414,68 @@ function _render_contact_notice(array $c, array $card): void
 <div class="card" style="padding:1.5rem;margin-bottom:1rem;border-left:4px solid var(--accent);">
   <div class="card__title"><?= e(t($heading)) ?></div>
   <p><?= e($c['office_notice'] ?? '') ?></p>
+</div>
+<?php
+}
+
+function _render_contact_business_info(array $c, array $card): void
+{
+    $heading = $card['heading'] ?? 'Как мы работаем';
+    ?>
+<div class="card card--business-info" style="padding:0;margin-bottom:1rem;border-radius:12px;overflow:hidden;border:1px solid #e0e7ef;">
+
+  <div style="padding:1.5rem 1.5rem 1rem;background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%);">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;">
+      <span style="font-size:1.5rem;">🏢</span>
+      <div class="card__title" style="margin:0;"><?= e(t($heading)) ?></div>
+    </div>
+    <p style="margin:0;color:var(--text-light);font-size:.92rem;line-height:1.5;">Локальный офис в городе — пережиток прошлого. Мы работаем современно и прозрачно.</p>
+  </div>
+
+  <div style="padding:1.25rem 1.5rem;">
+
+    <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #f0f0f0;">
+      <span style="font-size:1.3rem;flex-shrink:0;margin-top:2px;">📝</span>
+      <div>
+        <p style="margin:0 0 .25rem;font-weight:600;font-size:.95rem;">Договоры и документы — по ЭДО</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.5;color:var(--text-light);">Заключение договоров, подписание накладных и актов — через электронный документооборот. Быстро, юридически значимо, без поездок.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #f0f0f0;">
+      <span style="font-size:1.3rem;flex-shrink:0;margin-top:2px;">✉️</span>
+      <div>
+        <p style="margin:0 0 .25rem;font-weight:600;font-size:.95rem;">Заказы — только письменно</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.5;color:var(--text-light);">Принимаем заказы по электронной почте — так точнее и без недопонимания. Напишите размеры и количество на <a href="mailto:<?= e($c['email'] ?? '') ?>" style="color:var(--accent);font-weight:500;"><?= e($c['email'] ?? '') ?></a></p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #f0f0f0;">
+      <span style="font-size:1.3rem;flex-shrink:0;margin-top:2px;">📷</span>
+      <div>
+        <p style="margin:0 0 .25rem;font-weight:600;font-size:.95rem;">Фото — на сайте, образцы — в мастерской</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.5;color:var(--text-light);">Все виды стекла с фото есть в <a href="/steklo/" style="color:var(--accent);font-weight:500;">каталоге</a>. Образцы можно посмотреть и потрогать в мастерской в&nbsp;г.&nbsp;Электросталь.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;align-items:flex-start;">
+      <span style="font-size:1.3rem;flex-shrink:0;margin-top:2px;">🏭</span>
+      <div>
+        <p style="margin:0 0 .25rem;font-weight:600;font-size:.95rem;">Где получить товар</p>
+        <p style="margin:0;font-size:.88rem;line-height:1.5;color:var(--text-light);">Закалённое, обработанное стекло, триплекс и стеклопакеты — на производстве в&nbsp;г.&nbsp;Москве.<br>Прозрачное стекло 4&nbsp;мм, армированное, узорчатое и зеркала — в&nbsp;г.&nbsp;Электросталь.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding:1rem 1.5rem;background:#f8faf8;border-top:1px solid #e0e7ef;">
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem;font-size:.85rem;color:#2d8a56;">
+      <span>✓ Работаем с <?= (int)($c['company_since'] ?? 1998) ?> года</span>
+      <span>✓ ЭДО для юрлиц</span>
+      <span>✓ Доставка в <?= e($c['city_accusative'] ?? $c['city_name'] ?? '') ?></span>
+    </div>
+  </div>
+
 </div>
 <?php
 }
@@ -655,324 +718,7 @@ function render_sound_calculator(array $data, int $si = 0): void
 <?php
 }
 
-// ── 12. Shower glass configurator ───────────────────────────────────
-
-function render_shower_calculator(array $data, int $si = 0): void
-{
-    $sd = json_load(base_path() . '/_data/shower-data.json');
-    $c = city();
-    ?>
-<section class="section">
-  <div class="container">
-    <div class="sc" id="shower-calc">
-
-      <div class="sc__notice">
-        <strong><?= e($c['company_name'] ?? '') ?></strong> — производитель закалённого стекла для душевых. Режем по вашим размерам, закаливаем, сверлим отверстия под фурнитуру. <strong>У вас полная свобода в выборе крепежа и монтажной бригады</strong> — мы не навязываем дополнительных товаров и услуг.
-      </div>
-
-      <div class="sc__step">
-        <h3>1. Тип душевого ограждения</h3>
-        <p class="sc__hint">Выберите конфигурацию — мы подскажем количество и размеры панелей.</p>
-        <div class="sc__types" id="sc-types">
-<?php foreach ($sd['enclosure_types'] as $i => $t): ?>
-          <button class="sc__type-btn<?= ($i === 0 ? ' sc__type-btn--active' : '') ?>" data-idx="<?= $i ?>">
-            <strong><?= e($t['name']) ?></strong>
-            <span class="sc__type-desc"><?= e($t['desc']) ?></span>
-            <span class="sc__type-panels"><?= $t['panels'] ?> <?= $t['panels'] === 1 ? 'панель' : 'панели' ?></span>
-          </button>
-<?php endforeach; ?>
-        </div>
-      </div>
-
-      <div class="sc__step">
-        <h3>2. Размеры</h3>
-        <p class="sc__hint">Введите размеры проёма или панелей в сантиметрах.</p>
-        <div class="sc__inputs" id="sc-inputs"></div>
-        <p class="sc__type-note" id="sc-type-note" style="display:none;"></p>
-      </div>
-
-      <div class="sc__step">
-        <h3>3. Тип стекла</h3>
-        <p class="sc__hint">Всё стекло — закалённое (ГОСТ 30698-2014). Резка, закалка и полировка кромок включены в цену.</p>
-        <div class="sc__glass-cards" id="sc-glass">
-<?php foreach ($sd['glass_types'] as $i => $g): ?>
-          <button class="sc__glass-btn<?= (!empty($g['popular']) ? ' sc__glass-btn--active' : '') ?>" data-idx="<?= $i ?>">
-            <span class="sc__glass-name"><?= e($g['name']) ?></span>
-<?php if (!empty($g['popular'])): ?>
-            <span class="sc__glass-badge">Стандарт</span>
-<?php endif; ?>
-            <span class="sc__glass-price"><?= number_format($g['price_m2'], 0, '', ' ') ?> р/м²</span>
-            <span class="sc__glass-desc"><?= e($g['desc'] ?? '') ?></span>
-          </button>
-<?php endforeach; ?>
-        </div>
-      </div>
-
-      <div class="sc__step">
-        <h3>4. Отверстия и вырезы</h3>
-        <p class="sc__hint">Отверстия под петли, ручки, коннекторы. Делаются ДО закалки — после невозможно.</p>
-        <div class="sc__row">
-          <div class="sc__field">
-            <label>Отверстия, шт.</label>
-            <input type="number" id="sc-holes" value="0" min="0" max="20" step="1">
-            <span class="sc__field-hint"><?= $sd['processing']['hole_price'] ?> р/шт.</span>
-          </div>
-          <div class="sc__field">
-            <label>Вырезы, шт.</label>
-            <input type="number" id="sc-cutouts" value="0" min="0" max="10" step="1">
-            <span class="sc__field-hint"><?= $sd['processing']['cutout_price'] ?> р/шт.</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:1.5rem;">
-        <button class="sc__calc-btn" id="sc-calculate">Рассчитать</button>
-      </div>
-
-      <div class="sc__result" id="sc-result" style="display:none;">
-        <h3>Результат расчёта</h3>
-        <div class="sc__summary" id="sc-summary"></div>
-        <div class="sc__panels-table" id="sc-panels"></div>
-        <div class="sc__price-block" id="sc-price"></div>
-        <div class="sc__warnings" id="sc-warnings"></div>
-        <div class="sc__prod-note">
-          <strong>Мы изготовим</strong> закалённое стекло по вашим размерам за 5–7 рабочих дней. Полировка кромок включена. Доставка по <?= e($c['city_dative'] ?? $c['city_name']) ?> и всей Московской области.
-        </div>
-      </div>
-
-      <div class="sc__ref">
-        <p>Стекло для душевых ограждений — только закалённое (<?= e(implode(', ', $sd['gosts'])) ?>). После закалки стекло нельзя резать или сверлить.</p>
-      </div>
-    </div>
-
-    <style>
-    .sc { max-width: 860px; margin: 0 auto; }
-    .sc__notice { padding: .75rem 1rem; background: #eef7ff; border: 1px solid #b3d9ff; border-radius: 8px; font-size: .9rem; margin-bottom: 2rem; line-height: 1.5; }
-    .sc__step { margin-bottom: 2rem; }
-    .sc__step h3 { font-size: 1.15rem; color: var(--primary, #1a1a2e); margin-bottom: .5rem; }
-    .sc__hint { font-size: .85rem; color: var(--text-muted, #888); margin-bottom: .75rem; }
-    .sc__types { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .5rem; }
-    .sc__type-btn { padding: .75rem 1rem; border: 2px solid var(--border, #e0e0e0); border-radius: 8px; background: #fff; cursor: pointer; text-align: left; transition: all .2s; }
-    .sc__type-btn:hover { border-color: var(--accent, #27ae60); }
-    .sc__type-btn--active { border-color: var(--accent, #27ae60); background: rgba(39,174,96,.08); }
-    .sc__type-desc { display: block; font-size: .8rem; color: var(--text-muted, #888); margin-top: .2rem; }
-    .sc__type-panels { display: inline-block; margin-top: .3rem; font-size: .75rem; background: var(--bg-card, #f0f0f0); padding: .1rem .4rem; border-radius: 4px; }
-    .sc__type-note { margin-top: .5rem; padding: .5rem .75rem; background: rgba(39,174,96,.06); border-radius: 6px; font-size: .85rem; color: var(--text-light, #555); }
-    .sc__inputs { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; }
-    .sc__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .sc__field label { display: block; font-size: .85rem; color: var(--primary, #1a1a2e); margin-bottom: .3rem; font-weight: 500; }
-    .sc__field input { width: 100%; padding: .6rem; border: 2px solid var(--border, #e0e0e0); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
-    .sc__field input:focus { border-color: var(--accent, #27ae60); outline: none; }
-    .sc__field-hint { display: block; font-size: .75rem; color: var(--text-muted, #999); margin-top: .25rem; }
-    .sc__glass-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .5rem; }
-    .sc__glass-btn { padding: .6rem .8rem; border: 2px solid var(--border, #e0e0e0); border-radius: 8px; background: #fff; cursor: pointer; text-align: left; transition: all .2s; position: relative; }
-    .sc__glass-btn:hover { border-color: var(--accent, #27ae60); }
-    .sc__glass-btn--active { border-color: var(--accent, #27ae60); background: rgba(39,174,96,.08); }
-    .sc__glass-name { display: block; font-weight: 600; font-size: .9rem; }
-    .sc__glass-badge { display: inline-block; background: var(--accent, #27ae60); color: #fff; font-size: .65rem; font-weight: 700; padding: .1rem .4rem; border-radius: 3px; margin-top: .2rem; }
-    .sc__glass-price { display: block; font-size: .85rem; color: var(--accent, #e94560); font-weight: 600; margin-top: .2rem; }
-    .sc__glass-desc { display: block; font-size: .75rem; color: var(--text-muted, #888); margin-top: .15rem; }
-    .sc__calc-btn { padding: .75rem 2.5rem; background: var(--accent, #27ae60); color: #fff; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-    .sc__calc-btn:hover { background: #219a52; }
-    .sc__result { margin-top: 2rem; }
-    .sc__result h3 { font-size: 1.15rem; margin-bottom: 1rem; }
-    .sc__summary { padding: 1rem; background: var(--bg-card, #f8f9fa); border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid var(--accent, #27ae60); }
-    .sc__summary p { margin: .25rem 0; font-size: .95rem; }
-    .sc__panels-table { margin-bottom: 1rem; }
-    .sc__panels-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-    .sc__panels-table th { background: var(--primary, #1a1a2e); color: #fff; padding: .5rem; text-align: left; }
-    .sc__panels-table td { padding: .5rem; border-bottom: 1px solid var(--border, #e0e0e0); }
-    .sc__price-block { padding: 1rem; background: #f0faf4; border: 1px solid #b2dfdb; border-radius: 8px; margin-bottom: 1rem; }
-    .sc__price-line { display: flex; justify-content: space-between; font-size: .95rem; margin: .2rem 0; }
-    .sc__price-total { font-size: 1.2rem; font-weight: 700; color: var(--accent, #e94560); border-top: 2px solid var(--border, #e0e0e0); padding-top: .5rem; margin-top: .5rem; }
-    .sc__warnings { margin-bottom: 1rem; }
-    .sc__warning { padding: .4rem .7rem; background: #fffbe6; border-radius: 6px; font-size: .85rem; margin-bottom: .3rem; }
-    .sc__prod-note { padding: 1rem; background: #f0faf4; border: 1px solid #b2dfdb; border-radius: 8px; font-size: .9rem; line-height: 1.5; }
-    .sc__ref { margin-top: 1.5rem; font-size: .8rem; color: var(--text-muted, #999); }
-    @media (max-width: 600px) {
-      .sc__types { grid-template-columns: 1fr; }
-      .sc__glass-cards { grid-template-columns: 1fr 1fr; }
-      .sc__row { grid-template-columns: 1fr; }
-      .sc__inputs { grid-template-columns: 1fr; }
-    }
-    </style>
-
-    <script>
-    (function() {
-      var types = <?= json_encode($sd['enclosure_types'], JSON_UNESCAPED_UNICODE) ?>;
-      var glasses = <?= json_encode($sd['glass_types'], JSON_UNESCAPED_UNICODE) ?>;
-      var processing = <?= json_encode($sd['processing'], JSON_UNESCAPED_UNICODE) ?>;
-      var thicknessRules = <?= json_encode($sd['thickness_rules'], JSON_UNESCAPED_UNICODE) ?>;
-
-      var selType = 0;
-      var selGlass = (function() { for (var i = 0; i < glasses.length; i++) { if (glasses[i].popular) return i; } return 1; })();
-
-      function setupBtns(containerId, activeClass, cb) {
-        var el = document.getElementById(containerId);
-        if (!el) return;
-        el.addEventListener('click', function(e) {
-          var btn = e.target.closest('button');
-          if (!btn || !btn.hasAttribute('data-idx')) return;
-          var all = el.querySelectorAll('button');
-          for (var i = 0; i < all.length; i++) all[i].classList.remove(activeClass);
-          btn.classList.add(activeClass);
-          cb(parseInt(btn.getAttribute('data-idx')));
-        });
-      }
-
-      function renderInputs() {
-        var t = types[selType];
-        var container = document.getElementById('sc-inputs');
-        var html = '';
-        for (var i = 0; i < t.inputs.length; i++) {
-          var inp = t.inputs[i];
-          html += '<div class="sc__field"><label>' + inp.label + '</label>';
-          html += '<input type="number" id="sc-inp-' + inp.id + '" value="' + inp['default'] + '" min="' + inp.min + '" max="' + inp.max + '" step="1">';
-          html += '</div>';
-        }
-        container.innerHTML = html;
-
-        var noteEl = document.getElementById('sc-type-note');
-        if (t.note) {
-          noteEl.textContent = t.note;
-          noteEl.style.display = 'block';
-        } else {
-          noteEl.style.display = 'none';
-        }
-      }
-
-      setupBtns('sc-types', 'sc__type-btn--active', function(i) { selType = i; renderInputs(); });
-      setupBtns('sc-glass', 'sc__glass-btn--active', function(i) { selGlass = i; });
-      renderInputs();
-
-      document.getElementById('sc-calculate').addEventListener('click', calculate);
-
-      function getVal(id, fallback) {
-        var el = document.getElementById('sc-inp-' + id);
-        return el ? (parseFloat(el.value) || fallback) : fallback;
-      }
-
-      function calcPanels() {
-        var t = types[selType];
-        var h, panels = [];
-        switch (t.id) {
-          case 'walkin':
-            panels.push({name: 'Перегородка', w: getVal('width', 90), h: getVal('height', 200)});
-            break;
-          case 'corner_square':
-            h = getVal('height', 200);
-            var sz = getVal('size', 90);
-            panels.push({name: 'Боковая панель', w: sz, h: h});
-            panels.push({name: 'Дверная панель', w: sz, h: h});
-            break;
-          case 'corner_rect':
-            h = getVal('height', 200);
-            panels.push({name: 'Панель 1', w: getVal('width1', 80), h: h});
-            panels.push({name: 'Панель 2', w: getVal('width2', 100), h: h});
-            break;
-          case 'frontal_2':
-            h = getVal('height', 200);
-            var op = getVal('opening', 100);
-            var dw = getVal('door_width', 70);
-            panels.push({name: 'Дверь', w: dw, h: h});
-            panels.push({name: 'Неподвижная секция', w: Math.max(op - dw, 25), h: h});
-            break;
-          case 'frontal_3':
-            h = getVal('height', 200);
-            var op3 = getVal('opening', 150);
-            var dw3 = getVal('door_width', 70);
-            var side = Math.round((op3 - dw3) / 2);
-            panels.push({name: 'Левая секция', w: side, h: h});
-            panels.push({name: 'Дверь', w: dw3, h: h});
-            panels.push({name: 'Правая секция', w: side, h: h});
-            break;
-          case 'bathtub':
-            panels.push({name: 'Шторка', w: getVal('width', 80), h: getVal('height', 140)});
-            break;
-        }
-        return panels;
-      }
-
-      function recommendThickness(area) {
-        for (var i = 0; i < thicknessRules.length; i++) {
-          if (area <= thicknessRules[i].max_area) return thicknessRules[i].recommended;
-        }
-        return 10;
-      }
-
-      function calculate() {
-        var t = types[selType];
-        var g = glasses[selGlass];
-        var panels = calcPanels();
-        var totalArea = 0;
-        for (var i = 0; i < panels.length; i++) {
-          panels[i].area = (panels[i].w * panels[i].h) / 10000;
-          totalArea += panels[i].area;
-        }
-
-        var maxPanelArea = 0;
-        for (var j = 0; j < panels.length; j++) {
-          if (panels[j].area > maxPanelArea) maxPanelArea = panels[j].area;
-        }
-        var recThickness = recommendThickness(maxPanelArea);
-        if (t.wide_threshold) {
-          for (var k = 0; k < panels.length; k++) {
-            if (panels[k].w > t.wide_threshold) recThickness = Math.max(recThickness, t.wide_thickness || 10);
-          }
-        }
-        if (t.default_thickness === 6 && g.thickness >= 6) recThickness = 6;
-
-        var holes = parseInt(document.getElementById('sc-holes').value) || 0;
-        var cutouts = parseInt(document.getElementById('sc-cutouts').value) || 0;
-
-        var glassPrice = Math.round(totalArea * g.price_m2);
-        var holesPrice = holes * processing.hole_price;
-        var cutoutsPrice = cutouts * processing.cutout_price;
-        var totalPrice = glassPrice + holesPrice + cutoutsPrice;
-
-        // Summary
-        var summaryHtml = '<p><strong>Тип:</strong> ' + t.name + '</p>' +
-          '<p><strong>Панелей:</strong> ' + panels.length + ' шт.</p>' +
-          '<p><strong>Общая площадь:</strong> ' + totalArea.toFixed(2) + ' м&sup2;</p>' +
-          '<p><strong>Стекло:</strong> ' + g.name + '</p>';
-        if (g.thickness < recThickness) {
-          summaryHtml += '<p style="color:#e67e22;"><strong>Рекомендация:</strong> для ваших размеров лучше взять ' + recThickness + ' мм</p>';
-        }
-        document.getElementById('sc-summary').innerHTML = summaryHtml;
-
-        // Panels table
-        var tableHtml = '<table><thead><tr><th>Панель</th><th>Ширина</th><th>Высота</th><th>Площадь</th></tr></thead><tbody>';
-        for (var p = 0; p < panels.length; p++) {
-          tableHtml += '<tr><td>' + panels[p].name + '</td><td>' + panels[p].w + ' см</td><td>' + panels[p].h + ' см</td><td>' + panels[p].area.toFixed(2) + ' м&sup2;</td></tr>';
-        }
-        tableHtml += '</tbody></table>';
-        document.getElementById('sc-panels').innerHTML = tableHtml;
-
-        // Price
-        var priceHtml = '<div class="sc__price-line"><span>Стекло (' + totalArea.toFixed(2) + ' м&sup2; &times; ' + g.price_m2.toLocaleString('ru-RU') + ' р)</span><span>' + glassPrice.toLocaleString('ru-RU') + ' р</span></div>';
-        if (holesPrice > 0) priceHtml += '<div class="sc__price-line"><span>Отверстия (' + holes + ' шт. &times; ' + processing.hole_price + ' р)</span><span>' + holesPrice.toLocaleString('ru-RU') + ' р</span></div>';
-        if (cutoutsPrice > 0) priceHtml += '<div class="sc__price-line"><span>Вырезы (' + cutouts + ' шт. &times; ' + processing.cutout_price + ' р)</span><span>' + cutoutsPrice.toLocaleString('ru-RU') + ' р</span></div>';
-        priceHtml += '<div class="sc__price-line">включено: резка, закалка, полировка кромок</div>';
-        priceHtml += '<div class="sc__price-line sc__price-total"><span>Итого (ориентировочно)</span><span>' + totalPrice.toLocaleString('ru-RU') + ' р</span></div>';
-        document.getElementById('sc-price').innerHTML = priceHtml;
-
-        // Warnings
-        var warnsHtml = '<div class="sc__warning">Все отверстия и вырезы делаются ДО закалки. Укажите точные позиции при заказе.</div>';
-        warnsHtml += '<div class="sc__warning">Рекомендуем: сначала купите фурнитуру, замерьте позиции крепления, потом заказывайте стекло.</div>';
-        warnsHtml += '<div class="sc__warning">Крепёж и фурнитуру (петли, ручки, коннекторы) вы выбираете самостоятельно — полная свобода выбора.</div>';
-        document.getElementById('sc-warnings').innerHTML = warnsHtml;
-
-        document.getElementById('sc-result').style.display = 'block';
-        document.getElementById('sc-result').scrollIntoView({behavior: 'smooth', block: 'start'});
-      }
-    })();
-    </script>
-  </div>
-</section>
-<?php
-}
-
-// ── 13. Custom HTML ──────────────────────────────────────────────────
+// ── 12. Custom HTML ──────────────────────────────────────────────────
 
 function render_custom_html(array $data, int $si = 0): void
 {
