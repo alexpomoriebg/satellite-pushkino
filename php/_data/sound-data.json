@@ -1,0 +1,71 @@
+{
+  "materials": {
+    "walls": [
+      { "id": "brick-120", "name": "Кирпич 120 мм (полкирпича)", "category": "Кирпич", "thickness": 120, "rw": 46, "density": 1800, "icon": "wall" },
+      { "id": "brick-250", "name": "Кирпич 250 мм (в кирпич)", "category": "Кирпич", "thickness": 250, "rw": 53, "density": 1800, "icon": "wall" },
+      { "id": "brick-510", "name": "Кирпич 510 мм (в два кирпича)", "category": "Кирпич", "thickness": 510, "rw": 59, "density": 1800, "icon": "wall" },
+      { "id": "concrete-100", "name": "Бетон 100 мм", "category": "Бетон", "thickness": 100, "rw": 42, "density": 2400, "icon": "wall" },
+      { "id": "concrete-150", "name": "Бетон 150 мм", "category": "Бетон", "thickness": 150, "rw": 47, "density": 2400, "icon": "wall" },
+      { "id": "concrete-200", "name": "Бетон 200 мм", "category": "Бетон", "thickness": 200, "rw": 55, "density": 2400, "icon": "wall" },
+      { "id": "concrete-300", "name": "Бетон 300 мм", "category": "Бетон", "thickness": 300, "rw": 60, "density": 2400, "icon": "wall" },
+      { "id": "gas-100", "name": "Газобетон D500 100 мм", "category": "Газобетон", "thickness": 100, "rw": 35, "density": 500, "icon": "wall" },
+      { "id": "gas-200", "name": "Газобетон D500 200 мм", "category": "Газобетон", "thickness": 200, "rw": 44, "density": 500, "icon": "wall" },
+      { "id": "gas-300", "name": "Газобетон D500 300 мм", "category": "Газобетон", "thickness": 300, "rw": 48, "density": 500, "icon": "wall" },
+      { "id": "gas-d600-250", "name": "Газобетон D600 250 мм", "category": "Газобетон", "thickness": 250, "rw": 47, "density": 600, "icon": "wall" },
+      { "id": "gkl-75", "name": "Гипсокартон 1 слой (75 мм с ватой)", "category": "Гипсокартон", "thickness": 75, "rw": 43, "density": 30, "icon": "wall" },
+      { "id": "gkl-100", "name": "Гипсокартон 1 слой (100 мм с ватой)", "category": "Гипсокартон", "thickness": 100, "rw": 46, "density": 30, "icon": "wall" },
+      { "id": "gkl-2x100", "name": "Гипсокартон 2 слоя (125 мм с ватой)", "category": "Гипсокартон", "thickness": 125, "rw": 54, "density": 30, "icon": "wall" },
+      { "id": "wood-100", "name": "Дерево (бревно/брус) 100 мм", "category": "Дерево", "thickness": 100, "rw": 30, "density": 500, "icon": "wall" },
+      { "id": "wood-150", "name": "Дерево (бревно/брус) 150 мм", "category": "Дерево", "thickness": 150, "rw": 35, "density": 500, "icon": "wall" },
+      { "id": "wood-200", "name": "Дерево (бревно/брус) 200 мм", "category": "Дерево", "thickness": 200, "rw": 39, "density": 500, "icon": "wall" }
+    ],
+    "glass_single": [
+      { "id": "glass-3", "name": "Стекло 3 мм", "thickness": 3, "rw": 24, "icon": "glass" },
+      { "id": "glass-4", "name": "Стекло 4 мм", "thickness": 4, "rw": 26, "icon": "glass" },
+      { "id": "glass-5", "name": "Стекло 5 мм", "thickness": 5, "rw": 27, "icon": "glass" },
+      { "id": "glass-6", "name": "Стекло 6 мм", "thickness": 6, "rw": 29, "icon": "glass" },
+      { "id": "glass-8", "name": "Стекло 8 мм", "thickness": 8, "rw": 31, "icon": "glass" },
+      { "id": "glass-10", "name": "Стекло 10 мм", "thickness": 10, "rw": 33, "icon": "glass" },
+      { "id": "glass-12", "name": "Стекло 12 мм", "thickness": 12, "rw": 35, "icon": "glass" },
+      { "id": "triplex-33.1", "name": "Триплекс 3+3 мм (6.4 мм)", "thickness": 6.4, "rw": 31, "icon": "glass" },
+      { "id": "triplex-44.1", "name": "Триплекс 4+4 мм (8.4 мм)", "thickness": 8.4, "rw": 33, "icon": "glass" },
+      { "id": "triplex-55.1", "name": "Триплекс 5+5 мм (10.4 мм)", "thickness": 10.4, "rw": 35, "icon": "glass" },
+      { "id": "triplex-66.1", "name": "Триплекс 6+6 мм (12.4 мм)", "thickness": 12.4, "rw": 37, "icon": "glass" }
+    ],
+    "glazing_units": [
+      { "id": "sp-4-12-4", "name": "4-12-4 (однокамерный 20 мм)", "formula": "4-12-4", "thickness": 20, "rw": 28, "chambers": 1, "icon": "window" },
+      { "id": "sp-4-16-4", "name": "4-16-4 (однокамерный 24 мм)", "formula": "4-16-4", "thickness": 24, "rw": 30, "chambers": 1, "icon": "window" },
+      { "id": "sp-6-16-4", "name": "6-16-4 (однокамерный 26 мм)", "formula": "6-16-4", "thickness": 26, "rw": 32, "chambers": 1, "icon": "window" },
+      { "id": "sp-4-10-4-10-4", "name": "4-10-4-10-4 (двухкамерный 32 мм)", "formula": "4-10-4-10-4", "thickness": 32, "rw": 32, "chambers": 2, "icon": "window" },
+      { "id": "sp-6-10-4-10-4", "name": "6-10-4-10-4 (двухкамерный 34 мм)", "formula": "6-10-4-10-4", "thickness": 34, "rw": 34, "chambers": 2, "icon": "window" },
+      { "id": "sp-6-10-4-8-4", "name": "6-10-4-8-4 (двухкамерный 32 мм)", "formula": "6-10-4-8-4", "thickness": 32, "rw": 33, "chambers": 2, "icon": "window" },
+      { "id": "sp-6-12-4-10-4", "name": "6-12-4-10-4 (двухкамерный 36 мм)", "formula": "6-12-4-10-4", "thickness": 36, "rw": 35, "chambers": 2, "icon": "window" },
+      { "id": "sp-6-14-4-14-4", "name": "6-14-4-14-4 (двухкамерный 42 мм)", "formula": "6-14-4-14-4", "thickness": 42, "rw": 36, "chambers": 2, "icon": "window" },
+      { "id": "sp-8-14-4-14-4", "name": "8-14-4-14-4 (двухкамерный 44 мм)", "formula": "8-14-4-14-4", "thickness": 44, "rw": 37, "chambers": 2, "icon": "window" },
+      { "id": "sp-t44-16-4-14-t44", "name": "4.4-16-4-14-4.4 (триплекс, 46 мм)", "formula": "4.4.1-16-4-14-4.4.1", "thickness": 46, "rw": 42, "chambers": 2, "icon": "window" },
+      { "id": "sp-t55-16-4-14-t55", "name": "5.5-16-4-14-5.5 (триплекс шумо, 50 мм)", "formula": "5.5.2-16-4-14-5.5.2", "thickness": 50, "rw": 45, "chambers": 2, "icon": "window" },
+      { "id": "sp-shum-37", "name": "Шумозащитный 3.3.1-12Ar-4-10Ar-4.4.2 (37 мм)", "formula": "3.3.1-12Ar-4-10Ar-4.4.2", "thickness": 37, "rw": 37, "chambers": 2, "icon": "window" },
+      { "id": "sp-shum-41", "name": "Шумозащитный триплекс 5.5.2-16Ar-5.5.2 (36 мм)", "formula": "5.5.2-16Ar-5.5.2", "thickness": 36, "rw": 41, "chambers": 1, "icon": "window" },
+      { "id": "sp-shum-42", "name": "Шумозащитный триплекс 5.5.4-14Ar-4.4.1 (33 мм)", "formula": "5.5.4-14Ar-4.4.1", "thickness": 33, "rw": 42, "chambers": 1, "icon": "window" }
+    ]
+  },
+  "noise_sources": [
+    { "name": "Тишина (деревня ночью)", "db": 20, "icon": "leaf" },
+    { "name": "Шёпот", "db": 30, "icon": "person" },
+    { "name": "Тихий офис", "db": 40, "icon": "office" },
+    { "name": "Обычный разговор", "db": 50, "icon": "chat" },
+    { "name": "Телевизор", "db": 60, "icon": "tv" },
+    { "name": "Пылесос", "db": 70, "icon": "vacuum" },
+    { "name": "Оживлённая дорога", "db": 75, "icon": "road" },
+    { "name": "Крик, громкая музыка", "db": 80, "icon": "music" },
+    { "name": "Мотоцикл, поезд", "db": 90, "icon": "train" },
+    { "name": "Перфоратор", "db": 100, "icon": "drill" },
+    { "name": "Рок-концерт", "db": 110, "icon": "concert" },
+    { "name": "Взлёт самолёта (100 м)", "db": 120, "icon": "plane" },
+    { "name": "Реактивный двигатель", "db": 130, "icon": "jet" }
+  ],
+  "norms": {
+    "day": { "label": "Норма днём (7:00-23:00)", "db": 40 },
+    "night": { "label": "Норма ночью (23:00-7:00)", "db": 30 }
+  }
+}
