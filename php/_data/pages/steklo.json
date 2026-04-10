@@ -263,41 +263,6 @@
           }
         ]
       }
-    },
-    {
-      "type": "card_grid",
-      "data": {
-        "heading": "Смотрите также",
-        "subtitle": null,
-        "columns": 3,
-        "alt_bg": true,
-        "cards": [
-          {
-            "title": "Доставка",
-            "desc": "Стоимость и условия доставки стекла в {city_accusative}",
-            "link": {
-              "href": "/dostavka/",
-              "title": "Доставка"
-            }
-          },
-          {
-            "title": "Онлайн-расчёт",
-            "desc": "Рассчитайте стоимость стекла и стеклопакетов онлайн",
-            "link": {
-              "href": "/online-raschet/",
-              "title": "Онлайн-расчёт"
-            }
-          },
-          {
-            "title": "Контакты",
-            "desc": "Телефон, email и как заказать",
-            "link": {
-              "href": "/kontakty/",
-              "title": "Контакты"
-            }
-          }
-        ]
-      }
     }
   ]
 }
