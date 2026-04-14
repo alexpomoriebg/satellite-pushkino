@@ -34,7 +34,7 @@
           },
           {
             "cards": [
-              { "type": "no_office", "heading": "Работаем без офиса в {city_prepositional}" },
+              { "type": "no_office", "heading": "Офис в г. {city_name}" },
               { "type": "parent_link", "heading": "Полный каталог и цены" }
             ]
           }

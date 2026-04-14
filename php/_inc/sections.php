@@ -75,6 +75,57 @@ function render_hero(array $data, int $si = 0): void
   </div>
 </section>
 <?php
+    // Auto-render feature CTA block right after Hero on every page
+    render_feature_cta_block();
+}
+
+
+/**
+ * Renders a prominent two-button CTA block: unique feature + glass calculator.
+ * Configured via city.json (feature_cta + calculator_cta).
+ * Called automatically after Hero section.
+ */
+function render_feature_cta_block(): void
+{
+    static $rendered = false;
+    if ($rendered) return; // Only once per page
+    $rendered = true;
+
+    $c = city();
+    $feat = $c['feature_cta'] ?? null;
+    $calc = $c['calculator_cta'] ?? null;
+    if (!$feat || !$calc) return;
+
+    $featTitle = t($feat['title'] ?? '');
+    $featDesc  = t($feat['desc'] ?? '');
+    $featHref  = e(t($feat['href'] ?? '#'));
+    $calcTitle = t($calc['title'] ?? '');
+    $calcDesc  = t($calc['desc'] ?? '');
+    $calcHref  = e(t($calc['href'] ?? '#'));
+    ?>
+<section class="section feature-cta">
+  <div class="container">
+    <div class="feature-cta__grid">
+      <a href="<?= $featHref ?>" class="feature-cta__card feature-cta__card--primary">
+        <div class="feature-cta__icon">★</div>
+        <div class="feature-cta__content">
+          <div class="feature-cta__title"><?= e($featTitle) ?></div>
+          <div class="feature-cta__desc"><?= e($featDesc) ?></div>
+          <div class="feature-cta__arrow">Открыть →</div>
+        </div>
+      </a>
+      <a href="<?= $calcHref ?>" class="feature-cta__card feature-cta__card--accent" target="_blank" rel="noopener">
+        <div class="feature-cta__icon">₽</div>
+        <div class="feature-cta__content">
+          <div class="feature-cta__title"><?= e($calcTitle) ?></div>
+          <div class="feature-cta__desc"><?= e($calcDesc) ?></div>
+          <div class="feature-cta__arrow">Рассчитать →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<?php
 }
 
 // ── 2. Notice banner ─────────────────────────────────────────────────
@@ -359,6 +410,7 @@ function render_contact_grid(array $data, int $si = 0): void
             case 'email':       _render_contact_email($c, $card); break;
             case 'delivery':    _render_contact_delivery($c, $card); break;
             case 'notice':      _render_contact_notice($c, $card); break;
+            case 'no_office':   _render_contact_no_office($c, $card); break;
             case 'parent_link': _render_contact_parent_link($c, $card); break;
         }
 ?>
@@ -413,6 +465,45 @@ function _render_contact_notice(array $c, array $card): void
 <div class="card" style="padding:1.5rem;margin-bottom:1rem;border-left:4px solid var(--accent);">
   <div class="card__title"><?= e(t($heading)) ?></div>
   <p><?= e($c['office_notice'] ?? '') ?></p>
+</div>
+<?php
+}
+
+function _render_contact_no_office(array $c, array $card): void
+{
+    $heading = $card['heading'] ?? 'Офис в городе';
+    $city    = $c['city_name'] ?? '';
+    $address = $c['address_old'] ?? '';
+    $pickupCity = $c['pickup_city'] ?? '';
+    $cityPrep = $c['city_prepositional'] ?? $city;
+    // If this city IS the pickup city, skip the second pickup line to avoid confusion
+    $pickupSameAsCity = $pickupCity && mb_stripos($pickupCity, $city) !== false;
+    ?>
+<div class="card card--office-info" style="padding:1.5rem;margin-bottom:1rem;border-left:4px solid var(--accent);background:linear-gradient(135deg,#f0f7ff 0%,#fff 100%);">
+  <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
+    <span style="font-size:1.5rem;">📍</span>
+    <div class="card__title" style="margin:0;"><?= e(t($heading)) ?></div>
+  </div>
+<?php if ($address): ?>
+  <p style="margin-bottom:.75rem;line-height:1.6;font-weight:600;"><?= e($address) ?></p>
+<?php endif; ?>
+  <p style="margin-bottom:.35rem;line-height:1.6;">Офис в&nbsp;<?= e($cityPrep) ?> производит только онлайн-консультации по подбору стекла. Выдача товара по указанному адресу не&nbsp;производится.</p>
+  <p style="margin-bottom:.75rem;line-height:1.6;font-style:italic;color:var(--text-light);font-size:.93rem;">Приносить сюда дверь для подрезки не&nbsp;нужно&nbsp;— все заказы принимаем онлайн.</p>
+  <div style="margin-bottom:1rem;padding:.75rem 1rem;background:#f8f9fb;border-radius:8px;font-size:.9rem;line-height:1.5;">
+    <p style="margin:0 0 .35rem;font-weight:600;">🏭 Производство и выдача готовых изделий:</p>
+    <p style="margin:0;color:var(--text-light);">• <strong>Москва</strong> — закалённое стекло, триплекс, стеклопакеты</p>
+<?php if ($pickupCity && !$pickupSameAsCity): ?>
+    <p style="margin:0;color:var(--text-light);">• <strong><?= e($pickupCity) ?></strong> — прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала</p>
+<?php elseif ($pickupSameAsCity): ?>
+    <p style="margin:0;color:var(--text-light);">• <strong><?= e($pickupCity) ?></strong> (наш цех) — прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала</p>
+<?php endif; ?>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem;margin-bottom:1rem;font-size:.9rem;color:var(--text-light);">
+    <span>✓ Расчёт бесплатно</span>
+    <span>✓ Доставка от 1 дня</span>
+    <span>✓ Заказы — по email</span>
+  </div>
+  <a href="/dostavka/" class="btn btn--primary" style="display:inline-block;">Подробнее о доставке →</a>
 </div>
 <?php
 }

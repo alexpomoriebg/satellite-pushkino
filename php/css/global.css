@@ -537,3 +537,20 @@ details p { margin-top: .65rem; color: var(--text-light); font-size: .92rem; lin
   .grid--4 { grid-template-columns: 1fr; }
   .header__logo { font-size: .85rem; }
 }
+
+
+/* === Feature CTA block (under Hero, prominent two buttons) === */
+.feature-cta { padding: 2rem 0; }
+.feature-cta__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.feature-cta__card { display: flex; gap: 1rem; padding: 1.5rem; border-radius: 14px; text-decoration: none; color: inherit; transition: transform .15s, box-shadow .15s; border: 1px solid #e0e7ef; background: #fff; }
+.feature-cta__card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+.feature-cta__card--primary { background: linear-gradient(135deg, #1a4e8c 0%, #2d6fb8 100%); color: #fff; border-color: #1a4e8c; }
+.feature-cta__card--primary:hover { box-shadow: 0 8px 24px rgba(26,78,140,.25); }
+.feature-cta__card--accent { background: linear-gradient(135deg, #00b894 0%, #00a381 100%); color: #fff; border-color: #00b894; }
+.feature-cta__card--accent:hover { box-shadow: 0 8px 24px rgba(0,184,148,.25); }
+.feature-cta__icon { font-size: 2.2rem; line-height: 1; flex-shrink: 0; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,.15); border-radius: 12px; font-weight: 700; }
+.feature-cta__content { flex: 1; min-width: 0; }
+.feature-cta__title { font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; margin-bottom: .35rem; line-height: 1.25; }
+.feature-cta__desc { font-size: .9rem; line-height: 1.45; opacity: .92; margin-bottom: .6rem; }
+.feature-cta__arrow { font-size: .85rem; font-weight: 600; opacity: .85; }
+@media (max-width: 768px) { .feature-cta { padding: 1.25rem 0; } .feature-cta__grid { grid-template-columns: 1fr; gap: .75rem; } .feature-cta__card { padding: 1.1rem; } .feature-cta__icon { width: 44px; height: 44px; font-size: 1.7rem; } .feature-cta__title { font-size: .95rem; } .feature-cta__desc { font-size: .85rem; } }
