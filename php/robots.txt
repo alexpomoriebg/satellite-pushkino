@@ -3,5 +3,14 @@ Allow: /
 Disallow: /admin/
 Disallow: /_data/
 Disallow: /_inc/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/
+Disallow: /cgi-bin/
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+Disallow: /*?yclid=
 
-Sitemap: https://noginsk.steklotrade.com/sitemap.xml
+Sitemap: https://pushkino.steklotrade.com/sitemap.xml
+
+Host: pushkino.steklotrade.com
