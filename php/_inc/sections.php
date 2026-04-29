@@ -158,10 +158,55 @@ function render_card_grid(array $data, int $si = 0): void
     $altBg    = !empty($data['alt_bg']);
     $cards    = $data['cards'] ?? [];
 
+    // Schema.org ItemList с Product+Offer для карточек с ценой
+    $cityName = (city())['city_name'] ?? '';
+    $companyLegal = (city())['company_legal'] ?? '';
+    $productItems = [];
+    foreach ($cards as $ci => $card) {
+        if (!isset($card['price'])) {
+            continue;
+        }
+        $priceRaw = (string) $card['price'];
+        // "от 3 500" → 3500
+        $priceNum = preg_replace('/[^0-9.]/', '', str_replace(',', '.', $priceRaw));
+        if ($priceNum === '' || (float)$priceNum <= 0) {
+            continue;
+        }
+        $product = [
+            '@type'       => 'Product',
+            'name'        => t($card['title'] ?? ''),
+            'description' => t($card['desc'] ?? ''),
+            'brand'       => ['@type' => 'Brand', 'name' => 'Стеклотрейд'],
+            'offers'      => [
+                '@type'         => 'Offer',
+                'price'         => $priceNum,
+                'priceCurrency' => 'RUB',
+                'availability'  => 'https://schema.org/InStock',
+                'areaServed'    => $cityName,
+                'seller'        => ['@type' => 'Organization', 'name' => $companyLegal],
+            ],
+        ];
+        if (!empty($card['image'])) {
+            $product['image'] = $card['image'];
+        }
+        $productItems[] = ['@type' => 'ListItem', 'position' => count($productItems) + 1, 'item' => $product];
+    }
+    $itemListSchema = null;
+    if ($productItems) {
+        $itemListSchema = [
+            '@context'        => 'https://schema.org',
+            '@type'           => 'ItemList',
+            'itemListElement' => $productItems,
+        ];
+    }
+
     $sectionClass = 'section' . ($altBg ? ' section--alt' : '');
     ?>
 <section class="<?= $sectionClass ?>">
   <div class="container">
+<?php if ($itemListSchema): ?>
+    <script type="application/ld+json"><?= json_encode($itemListSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
+<?php endif; ?>
 <?php if ($heading): ?>
     <h2 class="section-title"<?= _ed($si, 'heading') ?>><?= e($heading) ?></h2>
 <?php endif; ?>
