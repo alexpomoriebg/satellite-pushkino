@@ -471,37 +471,47 @@ function _render_contact_notice(array $c, array $card): void
 
 function _render_contact_no_office(array $c, array $card): void
 {
-    $heading = $card['heading'] ?? 'Офис в городе';
-    $city    = $c['city_name'] ?? '';
-    $address = $c['address_old'] ?? '';
-    $pickupCity = $c['pickup_city'] ?? '';
-    $cityPrep = $c['city_prepositional'] ?? $city;
-    // If this city IS the pickup city, skip the second pickup line to avoid confusion
-    $pickupSameAsCity = $pickupCity && mb_stripos($pickupCity, $city) !== false;
+    $city         = $c['city_name'] ?? '';
+    $heading      = $card['heading'] ?? ('Филиал в г. ' . $city);
+    $address      = $c['address_old'] ?? '';
+    $legal        = $c['company_legal'] ?? '';
+    $email        = $c['email'] ?? 'info@steklotrade.com';
+    $prodAddr     = $c['address_production_full'] ?? 'г. Москва, Автомобильный проезд, д. 10';
+    $masterAddr   = $c['address_masterskaya_full'] ?? 'г. Электросталь, ул. Карла Маркса, д. 55А';
+    $pickupCity   = $c['pickup_city'] ?? '';
+    // If this city IS the pickup city (Электросталь) — show "офис и мастерская" вариант
+    $isPickupSelf = $pickupCity && mb_stripos($pickupCity, $city) !== false;
+    $badge        = $isPickupSelf ? 'Офис и мастерская' : 'Онлайн-офис';
     ?>
 <div class="card card--office-info" style="padding:1.5rem;margin-bottom:1rem;border-left:4px solid var(--accent);background:linear-gradient(135deg,#f0f7ff 0%,#fff 100%);">
   <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;">
     <span style="font-size:1.5rem;">📍</span>
     <div class="card__title" style="margin:0;"><?= e(t($heading)) ?></div>
   </div>
-<?php if ($address): ?>
-  <p style="margin-bottom:.75rem;line-height:1.6;font-weight:600;"><?= e($address) ?></p>
+<?php if ($legal): ?>
+  <p style="margin:0 0 .35rem;line-height:1.5;font-size:.95rem;color:var(--text-light);"><?= e($legal) ?></p>
 <?php endif; ?>
-  <p style="margin-bottom:.35rem;line-height:1.6;">Офис в&nbsp;<?= e($cityPrep) ?> производит только онлайн-консультации по подбору стекла. Выдача товара по указанному адресу не&nbsp;производится.</p>
-  <p style="margin-bottom:.75rem;line-height:1.6;font-style:italic;color:var(--text-light);font-size:.93rem;">Приносить сюда дверь для подрезки не&nbsp;нужно&nbsp;— все заказы принимаем онлайн.</p>
-  <div style="margin-bottom:1rem;padding:.75rem 1rem;background:#f8f9fb;border-radius:8px;font-size:.9rem;line-height:1.5;">
-    <p style="margin:0 0 .35rem;font-weight:600;">🏭 Производство и выдача готовых изделий:</p>
-    <p style="margin:0;color:var(--text-light);">• <strong>Москва</strong> — закалённое стекло, триплекс, стеклопакеты</p>
-<?php if ($pickupCity && !$pickupSameAsCity): ?>
-    <p style="margin:0;color:var(--text-light);">• <strong><?= e($pickupCity) ?></strong> — прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала</p>
-<?php elseif ($pickupSameAsCity): ?>
-    <p style="margin:0;color:var(--text-light);">• <strong><?= e($pickupCity) ?></strong> (наш цех) — прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала</p>
+<?php if ($address): ?>
+  <p style="margin-bottom:.5rem;line-height:1.6;font-weight:600;"><?= e($address) ?></p>
+<?php endif; ?>
+  <div style="display:inline-block;margin-bottom:.75rem;padding:.2rem .6rem;background:#fff7e0;border:1px solid #f0c850;border-radius:.5rem;font-size:.85rem;font-weight:600;color:#8a6500;"><?= e($badge) ?></div>
+<?php if ($isPickupSelf): ?>
+  <p style="margin-bottom:.5rem;line-height:1.6;">По указанному адресу работает наша <strong>мастерская</strong>: здесь&nbsp;же выдаём готовые изделия местного ассортимента (прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала, мелкий рез).</p>
+<?php else: ?>
+  <p style="margin-bottom:.5rem;line-height:1.6;"><strong>В офисе выдачи заказов нет.</strong> Изделия отгружаются только с&nbsp;производства в&nbsp;Москве и&nbsp;из&nbsp;мастерской в&nbsp;Электростали.</p>
+<?php endif; ?>
+  <p style="margin-bottom:.75rem;line-height:1.6;">Во&nbsp;избежание недоразумений все заказы принимаются <strong>только письменно</strong> по&nbsp;электронной почте <a href="mailto:<?= e($email) ?>" style="color:var(--accent);"><?= e($email) ?></a>.</p>
+  <div style="margin-bottom:1rem;padding:.75rem 1rem;background:#f8f9fb;border-radius:8px;font-size:.9rem;line-height:1.55;">
+    <p style="margin:0 0 .4rem;font-weight:600;">🏭 Точки отгрузки готовой продукции:</p>
+    <p style="margin:0 0 .25rem;color:var(--text);">• Стеклопакеты, триплекс, закалённое и&nbsp;обработанное стекло&nbsp;— <span style="color:var(--text-light);"><?= e($prodAddr) ?></span></p>
+<?php if (!$isPickupSelf): ?>
+    <p style="margin:0;color:var(--text);">• Прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала&nbsp;— <span style="color:var(--text-light);"><?= e($masterAddr) ?></span></p>
 <?php endif; ?>
   </div>
   <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem;margin-bottom:1rem;font-size:.9rem;color:var(--text-light);">
     <span>✓ Расчёт бесплатно</span>
     <span>✓ Доставка от 1 дня</span>
-    <span>✓ Заказы — по email</span>
+    <span>✓ Заказы — только по email</span>
   </div>
   <a href="/dostavka/" class="btn btn--primary" style="display:inline-block;">Подробнее о доставке →</a>
 </div>
