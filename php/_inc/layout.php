@@ -132,6 +132,9 @@ function layout_head(string $title, string $description, ?string $canonical = nu
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $fullTitle ?></title>
   <meta name="description" content="<?= $descEsc ?>">
+<?php $robots = $GLOBALS['_cms_robots'] ?? ''; if ($robots): ?>
+  <meta name="robots" content="<?= e($robots) ?>">
+<?php endif; ?>
   <link rel="canonical" href="<?= e($pageUrl) ?>">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -237,7 +240,17 @@ function layout_foot(): void
     $parentSite   = e($c['parent_site'] ?? '');
     $parentUrl    = e($c['parent_site_url'] ?? '');
     $companyLegal = e($c['company_legal'] ?? '');
-    $year         = date('Y');
+    $companyInn      = e($c['company_inn'] ?? '');
+    $companyKpp      = e($c['company_kpp'] ?? '');
+    $companyOgrn     = e($c['company_ogrn'] ?? '');
+    $companyLegalAddr= e($c['company_legal_address'] ?? '');
+    $companyBank     = e($c['company_bank'] ?? '');
+    $companyAcct     = e($c['company_bank_account'] ?? '');
+    $companyBik      = e($c['company_bank_bik'] ?? '');
+    $companyCorr     = e($c['company_bank_corr'] ?? '');
+    $addressOld      = e($c['address_old'] ?? '');
+    $cityName        = e($c['city_name'] ?? '');
+    $year            = date('Y');
 
     ?>
   </main>
@@ -281,11 +294,51 @@ function layout_foot(): void
           </p>
         </div>
       </div>
-      <div class="footer__bottom">
-        &copy; <?= $year ?> <?= $companyLegal ?>. Все права защищены.
+      <!-- Реквизиты юр.лица (для Яндекса/Роскомнадзора + доверие) -->
+      <div class="footer__legal" itemscope itemtype="https://schema.org/Organization" style="margin-top:1.5rem;padding:1rem 0;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;line-height:1.55;opacity:.78;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem 2rem;">
+          <div>
+            <div style="font-weight:600;margin-bottom:.25rem;" itemprop="legalName"><?= $companyLegal ?></div>
+<?php if ($companyInn): ?>
+            <div>ИНН <span itemprop="taxID"><?= $companyInn ?></span><?= $companyKpp ? ' · КПП ' . $companyKpp : '' ?><?= $companyOgrn ? ' · ОГРН <span itemprop="identifier">' . $companyOgrn . '</span>' : '' ?></div>
+<?php endif; ?>
+<?php if ($companyLegalAddr): ?>
+            <div>Юр. адрес: <span itemprop="address"><?= $companyLegalAddr ?></span></div>
+<?php endif; ?>
+<?php if ($addressOld): ?>
+            <div style="margin-top:.25rem;">Филиал в&nbsp;г.&nbsp;<?= $cityName ?> (онлайн-офис): <?= $addressOld ?></div>
+<?php endif; ?>
+          </div>
+<?php if ($companyAcct): ?>
+          <div>
+            <div style="font-weight:600;margin-bottom:.25rem;">Банковские реквизиты</div>
+            <div>Р/с <?= $companyAcct ?></div>
+            <div>в&nbsp;<?= $companyBank ?></div>
+            <div>БИК <?= $companyBik ?> · К/с <?= $companyCorr ?></div>
+          </div>
+<?php endif; ?>
+        </div>
+      </div>
+
+      <div class="footer__bottom" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem;align-items:center;">
+        <div>&copy; <?= $year ?> <?= $companyLegal ?>. Все права защищены.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:.85rem;">
+          <a href="/policy/">Политика обработки ПДн</a>
+          <a href="/consent/">Согласие на обработку ПДн</a>
+          <a href="/cookie/">Политика cookies</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- Cookie-уведомление (Роскомнадзор + 152-ФЗ) -->
+  <div id="cookie-notice" style="display:none;position:fixed;bottom:1rem;left:1rem;right:1rem;max-width:780px;margin:0 auto;padding:1rem 1.25rem;background:#1a1a1a;color:#f0f0f0;border-radius:.6rem;box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:9999;font-size:.92rem;line-height:1.5;">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;">
+      <div style="flex:1;min-width:240px;">Сайт использует файлы cookies и&nbsp;собирает данные для аналитики (Яндекс&nbsp;Метрика). Продолжая просмотр, вы&nbsp;соглашаетесь с&nbsp;<a href="/cookie/" style="color:#7cb6ff;">политикой&nbsp;cookies</a> и&nbsp;<a href="/policy/" style="color:#7cb6ff;">обработкой&nbsp;ПДн</a>.</div>
+      <button type="button" onclick="document.getElementById('cookie-notice').style.display='none';try{localStorage.setItem('cookieAck','1')}catch(e){}" style="padding:.45rem 1rem;background:#0066cc;color:#fff;border:0;border-radius:.4rem;font-weight:600;cursor:pointer;">Принимаю</button>
+    </div>
+  </div>
+  <script>(function(){try{if(!localStorage.getItem('cookieAck'))document.getElementById('cookie-notice').style.display='block';}catch(e){document.getElementById('cookie-notice').style.display='block';}})();</script>
 <?php if (!empty($_SESSION['admin_auth'])): ?>
 <?php _render_inline_editor(); ?>
 <?php endif; ?>
