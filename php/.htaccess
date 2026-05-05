@@ -32,7 +32,9 @@ RewriteRule ^_inc/ - [F,L]
 # Live pages are NESTED under /steklo/ or /steklopakety/, not root.
 # This preserves link juice from old .html URLs to matching articles.
 RewriteRule ^vidy-stekla[-a-z0-9]*\.html$ /steklo/vidy-stekla/? [L,R=301]
-RewriteRule ^zvukoizolyaciya[-a-z0-9]*\.html$ /zvukoizolyaciya/? [L,R=301]
+# Звукоизоляция перенесена на zhukovsky как РФ-фишка
+RewriteRule ^zvukoizolyaciya/?$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
+RewriteRule ^zvukoizolyaciya[-a-z0-9]*\.html$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
 RewriteRule ^kak-vybrat-steklopaket[-a-z0-9]*\.html$ /steklopakety/kak-vybrat/? [L,R=301]
 RewriteRule ^zamena-steklopaketa[-a-z0-9]*\.html$ /steklopakety/zamena-steklopaketa/? [L,R=301]
 RewriteRule ^zakalennoe-vs-obychnoe[-a-z0-9]*\.html$ /steklo/zakalennoe-vs-obychnoe/? [L,R=301]
