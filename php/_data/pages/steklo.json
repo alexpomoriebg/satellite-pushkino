@@ -260,6 +260,14 @@
               "href": "/dushevye/",
               "title": "Конфигуратор"
             }
+          },
+          {
+            "title": "Листовое витринное стекло",
+            "desc": "Виды и цены для витрин",
+            "link": {
+              "href": "/listovoe-vitrinnoe-steklo/",
+              "title": "Подробнее"
+            }
           }
         ]
       }
