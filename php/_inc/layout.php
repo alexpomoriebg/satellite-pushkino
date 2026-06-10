@@ -188,7 +188,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
       <div class="nav__dropdown">
         <a href="<?= e($n['href']) ?>" class="nav__dropdown-toggle"><?= e($n['label']) ?> <span class="nav__arrow">&#9662;</span></a>
         <div class="nav__dropdown-menu">
-          <a href="<?= e($n['href']) ?>">— <?= e($n['label']) ?> (все)</a>
+          <a href="<?= e($n['href']) ?>">Каталог: <?= e($n['label']) ?></a>
 <?php     foreach ($n['children'] as $child): ?>
           <a href="<?= e($child['href']) ?>"><?= e($child['label']) ?></a>
 <?php     endforeach; ?>
