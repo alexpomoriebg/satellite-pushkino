@@ -91,6 +91,11 @@ RewriteRule ^dushev[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
 RewriteRule ^(sauna|banya)[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
 RewriteRule ^teplic[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
 RewriteRule ^stekla-dlya-xolodilnoj-vitriny\.html$ /produkciya/? [L,R=301]
+# Восстановленная страница «Витринное стекло»: 200 по историческому .html-URL
+RewriteRule ^vitrinnoe-steklo\.html$ vitrinnoe-steklo/index.php [L]
+RewriteRule ^vitrinnoe-steklo/?$ /vitrinnoe-steklo.html [R=301,L]
+# Архив старого черновика-слага → актуальная страница
+RewriteRule ^listovoe-vitrinnoe-steklo/?$ /vitrinnoe-steklo.html [R=301,L]
 RewriteRule ^poly[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
 # Tripleks = laminated glass product (доп. обработка), preserved /produkciya/ mapping from old .htaccess
 RewriteRule ^tripleks[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
