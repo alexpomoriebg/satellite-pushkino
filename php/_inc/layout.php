@@ -104,6 +104,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
         ['href' => '/steklo/',          'label' => 'Стекло', 'children' => [
             ['href' => '/steklo/vidy-stekla/',            'label' => 'Виды стекла: гид по выбору'],
             ['href' => '/steklo/zakalennoe-vs-obychnoe/', 'label' => 'Закалённое vs обычное стекло'],
+            ['href' => '/rezka-zakalennogo-stekla.html', 'label' => 'Резка закалённого стекла'],
             ['href' => '/vitrinnoe-steklo.html',          'label' => 'Витринное стекло'],
         ]],
         ['href' => '/produkciya/',      'label' => 'Продукция'],

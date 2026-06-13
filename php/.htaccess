@@ -69,6 +69,9 @@ RewriteRule ^steklopakety/(.+)$ /steklopakety/? [L,R=301]
 RewriteRule ^zerkal[a-z0-9-]*\.html$ /zerkala/? [L,R=301]
 
 # --- Services (uslugi) ---
+# --- Новая страница silo резки: rezka-zakalennogo-stekla (200 по .html, как rezka) ---
+RewriteRule ^rezka-zakalennogo-stekla.html$ rezka-zakalennogo-stekla/index.php [L]
+RewriteRule ^rezka-zakalennogo-stekla/?$ /rezka-zakalennogo-stekla.html [R=301,L]
 RewriteRule ^(rezka|figurnaya-rezka-stekla|figurnaya|hudozhestvennaya-rezka-stekla|polirovka|obrabotka-kromki-stekla|obrabotka)[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
 RewriteRule ^zakalennoe-steklo[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
 RewriteRule ^zakalka-stekla[-a-z0-9]*\.html$ /uslugi/? [L,R=301]

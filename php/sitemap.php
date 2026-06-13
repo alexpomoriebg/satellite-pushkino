@@ -44,6 +44,7 @@ $articlePaths = [
     'dushevaya-iz-stekla-svoimi-rukami' => '/dushevye/dushevaya-iz-stekla-svoimi-rukami/',
     'zamena-steklopaketa' => '/steklopakety/zamena-steklopaketa/',
     'vitrinnoe-steklo' => '/vitrinnoe-steklo.html',
+    'rezka-zakalennogo-stekla' => '/rezka-zakalennogo-stekla.html',
 ];
 
 foreach ($slugs as $slug) {
