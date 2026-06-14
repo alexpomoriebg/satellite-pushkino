@@ -179,6 +179,14 @@
               "href": "{parent_site_url}/rezka.html",
               "title": "На {parent_site}"
             }
+          },
+          {
+            "title": "Закалённое стекло",
+            "desc": "Безопасное закалённое стекло в размер: прочность, толщины, ГОСТ 30698.",
+            "link": {
+              "href": "/zakalennoe-steklo.html",
+              "title": "Перейти к закалённому стеклу"
+            }
           }
         ]
       }
