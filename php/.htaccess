@@ -72,9 +72,12 @@ RewriteRule ^zerkal[a-z0-9-]*\.html$ /zerkala/? [L,R=301]
 # --- Дубль «резка закалённого» снят: 301 на головной (антиканнибализация) ---
 RewriteRule ^rezka-zakalennogo-stekla\.html$ https://steklotrade.com/rezka-zakalennogo-stekla.html [R=301,L]
 RewriteRule ^rezka-zakalennogo-stekla/?$ https://steklotrade.com/rezka-zakalennogo-stekla.html [R=301,L]
-# --- Новая DIY-страница silo резки: kak-rezat-steklo (200 по .html) ---
-RewriteRule ^kak-rezat-steklo\.html$ kak-rezat-steklo/index.php [L]
-RewriteRule ^kak-rezat-steklo/?$ /kak-rezat-steklo.html [R=301,L]
+# --- Восстановление резки на историческом URL /rezka.html (200) ---
+RewriteRule ^rezka\.html$ rezka/index.php [L]
+RewriteRule ^rezka/?$ /rezka.html [R=301,L]
+# --- Старый слаг kak-rezat-steklo → 301 на /rezka.html ---
+RewriteRule ^kak-rezat-steklo\.html$ /rezka.html [R=301,L]
+RewriteRule ^kak-rezat-steklo/?$ /rezka.html [R=301,L]
 # --- Страница silo «закалённое стекло»: zakalennoe-steklo ---
 RewriteRule ^zakalennoe-steklo\.html$ zakalennoe-steklo/index.php [L]
 RewriteRule ^zakalennoe-steklo/?$ /zakalennoe-steklo.html [R=301,L]
