@@ -37,6 +37,7 @@ $excludeSlugs = ['teplicy', 'steklo-ili-polikarbonat', 'kakoe-steklo-dlya-teplic
 
 // Article slug → URL mapping (parent/article/)
 $articlePaths = [
+    'zakalennoe-steklo' => '/zakalennoe-steklo.html',
     'vidy-stekla' => '/steklo/vidy-stekla/',
     'zakalennoe-vs-obychnoe' => '/steklo/zakalennoe-vs-obychnoe/',
     'kak-vybrat-steklopaket' => '/steklopakety/kak-vybrat/',
