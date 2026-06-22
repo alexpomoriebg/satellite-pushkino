@@ -104,7 +104,6 @@ function layout_head(string $title, string $description, ?string $canonical = nu
         ['href' => '/steklo/',          'label' => 'Стекло', 'children' => [
             ['href' => '/steklo/vidy-stekla/',            'label' => 'Виды стекла: гид по выбору'],
             ['href' => '/zakalennoe-steklo.html', 'label' => 'Закалённое стекло'],
-            ['href' => '/steklo/zakalennoe-vs-obychnoe/', 'label' => 'Закалённое vs обычное стекло'],
             ['href' => '/rezka.html', 'label' => 'Как резать стекло'],
             ['href' => '/vitrinnoe-steklo.html',          'label' => 'Витринное стекло'],
         ]],
@@ -112,7 +111,6 @@ function layout_head(string $title, string $description, ?string $canonical = nu
         ['href' => '/zerkala/',         'label' => 'Зеркала'],
         ['href' => '/uslugi/',          'label' => 'Услуги'],
         ['href' => '/steklopakety/',    'label' => 'Стеклопакеты', 'children' => [
-            ['href' => '/steklopakety/kak-vybrat/',       'label' => 'Как выбрать стеклопакет'],
             ['href' => '/steklopakety/zamena-steklopaketa/', 'label' => 'Замена стеклопакета'],
         ]],
         ['href' => '/dushevye/', 'label' => 'Душевые', 'children' => [

@@ -35,11 +35,11 @@ RewriteRule ^vidy-stekla[-a-z0-9]*\.html$ /steklo/vidy-stekla/? [L,R=301]
 # Звукоизоляция перенесена на zhukovskiy как РФ-фишка
 RewriteRule ^zvukoizolyaciya/?$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
 RewriteRule ^zvukoizolyaciya[-a-z0-9]*\.html$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
-RewriteRule ^kak-vybrat-steklopaket[-a-z0-9]*\.html$ /steklopakety/kak-vybrat/? [L,R=301]
+RewriteRule ^kak-vybrat-steklopaket[-a-z0-9]*\.html$ https://steklotrade.com/kakoj-steklopaket-vybrat.html [L,R=301]
 RewriteRule ^zamena-steklopaketa[-a-z0-9]*\.html$ /steklopakety/zamena-steklopaketa/? [L,R=301]
-RewriteRule ^zakalennoe-vs-obychnoe[-a-z0-9]*\.html$ /steklo/zakalennoe-vs-obychnoe/? [L,R=301]
+RewriteRule ^zakalennoe-vs-obychnoe[-a-z0-9]*\.html$ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
 # Safeguard: if old slug was "zakalennoe-steklo-vs-obychnoe"
-RewriteRule ^zakalennoe-steklo-vs-obychnoe[-a-z0-9]*\.html$ /steklo/zakalennoe-vs-obychnoe/? [L,R=301]
+RewriteRule ^zakalennoe-steklo-vs-obychnoe[-a-z0-9]*\.html$ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
 
 # --- System pages → / (главная) ---
 RewriteRule ^(akcii|cart|politika-konfidencialnosti|login|registration|profile|my-account|praise|skidki|skidka-5|zayavka-otpravlena|sotrydnichestvo|rabota-s-eetp|postavshhik-stekla|vesennyaya_pesnya|t1)\.html$ / [L,R=301]
@@ -61,7 +61,7 @@ RewriteRule ^steklopak[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
 RewriteRule ^(odno|dvux|trex)kamern[a-z0-9-]*steklopaket[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
 RewriteRule ^(odno|dvux|trex)kamernyj-steklopaket[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
 # Keep existing article subdirs functional
-RewriteRule ^steklopakety/kak-vybrat/ - [L]
+RewriteRule ^steklopakety/kak-vybrat/ https://steklotrade.com/kakoj-steklopaket-vybrat.html [L,R=301]
 RewriteRule ^steklopakety/zamena-steklopaketa/ - [L]
 RewriteRule ^steklopakety/(.+)$ /steklopakety/? [L,R=301]
 
@@ -133,7 +133,7 @@ RewriteRule ^wp-admin/?(.*)$ / [L,R=301]
 # --- WordPress taxonomy URLs ---
 # Keep real live subpages accessible
 RewriteRule ^steklo/vidy-stekla/ - [L]
-RewriteRule ^steklo/zakalennoe-vs-obychnoe/ - [L]
+RewriteRule ^steklo/zakalennoe-vs-obychnoe/ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
 RewriteRule ^steklo/tonirovannoe-steklo(/.*)?$ /steklo/? [L,R=301]
 RewriteRule ^steklo/matovoe-steklo(/.*)?$ /steklo/? [L,R=301]
 RewriteRule ^steklo/tripleks(/.*)?$ /produkciya/? [L,R=301]
