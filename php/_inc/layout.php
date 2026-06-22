@@ -103,6 +103,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     $nav = [
         ['href' => '/steklo/',          'label' => 'Стекло', 'children' => [
             ['href' => '/steklo/vidy-stekla/',            'label' => 'Виды стекла: гид по выбору'],
+            ['href' => '/steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka/', 'label' => "Безрамные душевые: тренды"],
             ['href' => '/zakalennoe-steklo.html', 'label' => 'Закалённое стекло'],
             ['href' => '/rezka.html', 'label' => 'Как резать стекло'],
             ['href' => '/vitrinnoe-steklo.html',          'label' => 'Витринное стекло'],

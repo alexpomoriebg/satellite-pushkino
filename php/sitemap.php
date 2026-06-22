@@ -39,6 +39,7 @@ $excludeSlugs = ['teplicy', 'steklo-ili-polikarbonat', 'kakoe-steklo-dlya-teplic
 $articlePaths = [
     'zakalennoe-steklo' => '/zakalennoe-steklo.html',
     'vidy-stekla' => '/steklo/vidy-stekla/',
+    'bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka' => '/steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka/',
     'zakalennoe-vs-obychnoe' => '/steklo/zakalennoe-vs-obychnoe/',
     'kak-vybrat-steklopaket' => '/steklopakety/kak-vybrat/',
     'steklo-dlya-dushevoj' => '/dushevye/steklo-dlya-dushevoj/',
