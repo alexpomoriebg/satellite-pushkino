@@ -48,8 +48,51 @@ $resp = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 if ($resp === false || $code !== 200) {
-    http_response_code(502);
-    echo json_encode(array('reply' => 'Извините, чат сейчас недоступен. Напишите на info@steklotrade.com или позвоните +7 (495) 585-47-20 — ответим быстро.'), JSON_UNESCAPED_UNICODE);
+    // Бот на VPS недоступен → план Б: аварийный FAQ по ключевым словам (без внешних API).
+    // FAQ отвечает кратко из проверенных фактов и уводит на заявку; точных цен не называет.
+    echo json_encode(array('reply' => faq_reply($msg)), JSON_UNESCAPED_UNICODE);
     exit;
 }
 echo $resp; // {"reply":"..."} — как есть от бота
+
+/**
+ * Аварийный FAQ-ответ (план Б). Читает faq.json рядом с этим файлом, матчит сообщение
+ * клиента по словам-триггерам, возвращает лучший ответ. Ничего не нашли → мягкий увод.
+ * PHP 5.6-safe: без str_contains/match/стрелочных функций.
+ */
+function faq_reply($msg) {
+    $fallback = 'Извините, консультант сейчас недоступен. Напишите, что вам нужно (вид стекла, размеры), на info@steklotrade.com или позвоните +7 (495) 585-47-20 — ответим быстро.';
+    $raw = @file_get_contents(dirname(__FILE__) . '/faq.json');
+    if ($raw === false) { return $fallback; }
+    $faq = json_decode($raw, true);
+    if (!is_array($faq) || empty($faq['items'])) { return $fallback; }
+
+    // Нормализация: нижний регистр (кириллица через mb), ё→е, всё кроме букв/цифр → пробел.
+    $norm = function ($s) {
+        $s = function_exists('mb_strtolower') ? mb_strtolower($s, 'UTF-8') : strtolower($s);
+        $s = str_replace(array('ё'), array('е'), $s);
+        $s = preg_replace('/[^a-zа-я0-9 ]/u', ' ', $s);
+        return ' ' . preg_replace('/\s+/u', ' ', trim($s)) . ' ';
+    };
+    $text = $norm($msg);
+
+    $minScore = isset($faq['min_score']) ? (int)$faq['min_score'] : 1;
+    $best = null; $bestScore = 0;
+    foreach ($faq['items'] as $item) {
+        if (empty($item['keys']) || empty($item['reply'])) { continue; }
+        $score = 0;
+        foreach ($item['keys'] as $k) {
+            $kk = trim($norm($k));
+            if ($kk === '') { continue; }
+            $len = function_exists('mb_strlen') ? mb_strlen($kk, 'UTF-8') : strlen($kk);
+            $hit = (strpos($kk, ' ') !== false || $len >= 5)
+                // Фраза или длинный ключ — по началу слова: ловит падежи (безнал→безналу, доставка→доставку).
+                ? (strpos($text, ' ' . $kk) !== false)
+                // Короткий ключ — только целым словом, иначе 'нал' поймал бы 'наличие'.
+                : (strpos($text, ' ' . $kk . ' ') !== false);
+            if ($hit) { $score++; }
+        }
+        if ($score > $bestScore) { $bestScore = $score; $best = $item['reply']; }
+    }
+    return ($best !== null && $bestScore >= $minScore) ? $best : $fallback;
+}
