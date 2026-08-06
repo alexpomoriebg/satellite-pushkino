@@ -102,6 +102,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     // Navigation with optional dropdowns
     $nav = [
         ['href' => '/steklo/',          'label' => 'Стекло', 'children' => [
+            ['href' => '/muzejnoe-steklo/', 'label' => 'Музейное стекло Artglass'],
             ['href' => '/steklo/vidy-stekla/',            'label' => 'Виды стекла: гид по выбору'],
             ['href' => '/steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka/', 'label' => "Безрамные душевые: тренды"],
             ['href' => '/zakalennoe-steklo.html', 'label' => 'Закалённое стекло'],
