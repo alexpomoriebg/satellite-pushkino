@@ -32,42 +32,42 @@ RewriteRule ^steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka
 # --- Direct 1:1 for article slugs that exist as live pages ---
 # Live pages are NESTED under /steklo/ or /steklopakety/, not root.
 # This preserves link juice from old .html URLs to matching articles.
-RewriteRule ^vidy-stekla[-a-z0-9]*\.html$ /steklo/vidy-stekla/? [L,R=301]
+RewriteRule ^vidy-stekla[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/vidy-stekla/? [L,R=301]
 # Звукоизоляция перенесена на zhukovskiy как РФ-фишка
 RewriteRule ^zvukoizolyaciya/?$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
 RewriteRule ^zvukoizolyaciya[-a-z0-9]*\.html$ https://zhukovskiy.steklotrade.com/zvukoizolyaciya/ [L,R=301]
 RewriteRule ^kak-vybrat-steklopaket[-a-z0-9]*\.html$ https://steklotrade.com/kakoj-steklopaket-vybrat.html [L,R=301]
-RewriteRule ^zamena-steklopaketa[-a-z0-9]*\.html$ /steklopakety/zamena-steklopaketa/? [L,R=301]
+RewriteRule ^zamena-steklopaketa[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklopakety/zamena-steklopaketa/? [L,R=301]
 RewriteRule ^zakalennoe-vs-obychnoe[-a-z0-9]*\.html$ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
 # Safeguard: if old slug was "zakalennoe-steklo-vs-obychnoe"
 RewriteRule ^zakalennoe-steklo-vs-obychnoe[-a-z0-9]*\.html$ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
 
 # --- System pages → / (главная) ---
-RewriteRule ^(akcii|cart|politika-konfidencialnosti|login|registration|profile|my-account|praise|skidki|skidka-5|zayavka-otpravlena|sotrydnichestvo|rabota-s-eetp|postavshhik-stekla|vesennyaya_pesnya|t1)\.html$ / [L,R=301]
+RewriteRule ^(akcii|cart|politika-konfidencialnosti|login|registration|profile|my-account|praise|skidki|skidka-5|zayavka-otpravlena|sotrydnichestvo|rabota-s-eetp|postavshhik-stekla|vesennyaya_pesnya|t1)\.html$ https://%{HTTP_HOST}/ [L,R=301]
 
 # --- Contacts / delivery / calculator ---
-RewriteRule ^koordinati\.html$ /kontakty/? [L,R=301]
-RewriteRule ^oplata\.html$ /dostavka/? [L,R=301]
-RewriteRule ^dostavka\.html$ /dostavka/? [L,R=301]
-RewriteRule ^dostavkama?[0-9]+\.html$ /dostavka/? [L,R=301]
-RewriteRule ^dostavkam?\.html$ /dostavka/? [L,R=301]
-RewriteRule ^raschyot\.html$ /online-raschet/? [L,R=301]
-RewriteRule ^raschet\.html$ /online-raschet/? [L,R=301]
+RewriteRule ^koordinati\.html$ https://%{HTTP_HOST}/kontakty/? [L,R=301]
+RewriteRule ^oplata\.html$ https://%{HTTP_HOST}/dostavka/? [L,R=301]
+RewriteRule ^dostavka\.html$ https://%{HTTP_HOST}/dostavka/? [L,R=301]
+RewriteRule ^dostavkama?[0-9]+\.html$ https://%{HTTP_HOST}/dostavka/? [L,R=301]
+RewriteRule ^dostavkam?\.html$ https://%{HTTP_HOST}/dostavka/? [L,R=301]
+RewriteRule ^raschyot\.html$ https://%{HTTP_HOST}/online-raschet/? [L,R=301]
+RewriteRule ^raschet\.html$ https://%{HTTP_HOST}/online-raschet/? [L,R=301]
 
 # --- Steklopakety (insulated glass units) ONLY ---
 # Note: "okna" goes here because it's pl. plastic windows (uses IGU).
 # "okonnoe-steklo" is MATERIAL → /steklo/ (see below). Do not merge these two.
-RewriteRule ^okna[-a-z0-9]*\.html$ /steklopakety/? [L,R=301]
-RewriteRule ^steklopak[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
-RewriteRule ^(odno|dvux|trex)kamern[a-z0-9-]*steklopaket[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
-RewriteRule ^(odno|dvux|trex)kamernyj-steklopaket[a-z0-9-]*\.html$ /steklopakety/? [L,R=301]
+RewriteRule ^okna[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklopakety/? [L,R=301]
+RewriteRule ^steklopak[a-z0-9-]*\.html$ https://%{HTTP_HOST}/steklopakety/? [L,R=301]
+RewriteRule ^(odno|dvux|trex)kamern[a-z0-9-]*steklopaket[a-z0-9-]*\.html$ https://%{HTTP_HOST}/steklopakety/? [L,R=301]
+RewriteRule ^(odno|dvux|trex)kamernyj-steklopaket[a-z0-9-]*\.html$ https://%{HTTP_HOST}/steklopakety/? [L,R=301]
 # Keep existing article subdirs functional
 RewriteRule ^steklopakety/kak-vybrat/ https://steklotrade.com/kakoj-steklopaket-vybrat.html [L,R=301]
 RewriteRule ^steklopakety/zamena-steklopaketa/ - [L]
-RewriteRule ^steklopakety/(.+)$ /steklopakety/? [L,R=301]
+RewriteRule ^steklopakety/(.+)$ https://%{HTTP_HOST}/steklopakety/? [L,R=301]
 
 # --- Mirrors (zerkala) ---
-RewriteRule ^zerkal[a-z0-9-]*\.html$ /zerkala/? [L,R=301]
+RewriteRule ^zerkal[a-z0-9-]*\.html$ https://%{HTTP_HOST}/zerkala/? [L,R=301]
 
 # --- Services (uslugi) ---
 # --- Дубль «резка закалённого» снят: 301 на головной (антиканнибализация) ---
@@ -75,70 +75,70 @@ RewriteRule ^rezka-zakalennogo-stekla\.html$ https://steklotrade.com/rezka-zakal
 RewriteRule ^rezka-zakalennogo-stekla/?$ https://steklotrade.com/rezka-zakalennogo-stekla.html [R=301,L]
 # --- Восстановление резки на историческом URL /rezka.html (200) ---
 RewriteRule ^rezka\.html$ rezka/index.php [L]
-RewriteRule ^rezka/?$ /rezka.html [R=301,L]
+RewriteRule ^rezka/?$ https://%{HTTP_HOST}/rezka.html [R=301,L]
 # --- Старый слаг kak-rezat-steklo → 301 на /rezka.html ---
-RewriteRule ^kak-rezat-steklo\.html$ /rezka.html [R=301,L]
-RewriteRule ^kak-rezat-steklo/?$ /rezka.html [R=301,L]
+RewriteRule ^kak-rezat-steklo\.html$ https://%{HTTP_HOST}/rezka.html [R=301,L]
+RewriteRule ^kak-rezat-steklo/?$ https://%{HTTP_HOST}/rezka.html [R=301,L]
 # --- Страница silo «закалённое стекло»: zakalennoe-steklo ---
 RewriteRule ^zakalennoe-steklo\.html$ zakalennoe-steklo/index.php [L]
-RewriteRule ^zakalennoe-steklo/?$ /zakalennoe-steklo.html [R=301,L]
+RewriteRule ^zakalennoe-steklo/?$ https://%{HTTP_HOST}/zakalennoe-steklo.html [R=301,L]
 
-RewriteRule ^(rezka|figurnaya-rezka-stekla|figurnaya|hudozhestvennaya-rezka-stekla|polirovka|obrabotka-kromki-stekla|obrabotka)[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
-RewriteRule ^zakalennoe-steklo[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
-RewriteRule ^zakalka-stekla[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
-RewriteRule ^ultrafioletovaya-sklejka-stekla[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
-RewriteRule ^rezka-stekla[-a-z0-9]*\.html$ /uslugi/? [L,R=301]
+RewriteRule ^(rezka|figurnaya-rezka-stekla|figurnaya|hudozhestvennaya-rezka-stekla|polirovka|obrabotka-kromki-stekla|obrabotka)[-a-z0-9]*\.html$ https://%{HTTP_HOST}/uslugi/? [L,R=301]
+RewriteRule ^zakalennoe-steklo[-a-z0-9]*\.html$ https://%{HTTP_HOST}/uslugi/? [L,R=301]
+RewriteRule ^zakalka-stekla[-a-z0-9]*\.html$ https://%{HTTP_HOST}/uslugi/? [L,R=301]
+RewriteRule ^ultrafioletovaya-sklejka-stekla[-a-z0-9]*\.html$ https://%{HTTP_HOST}/uslugi/? [L,R=301]
+RewriteRule ^rezka-stekla[-a-z0-9]*\.html$ https://%{HTTP_HOST}/uslugi/? [L,R=301]
 
 # --- Doors / interior glass products → /produkciya/ ---
-RewriteRule ^dveri[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^mezhkomnatnye-dveri[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^mebel[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^izdeli[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^fartuk[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^kuxonnyj-fartuk[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^skinali[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^stoleshnic[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^polk[ai][-a-z0-9]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^(peregorodk|partition)[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^(balkon|osteklenie|veranda)[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^dushev[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^(sauna|banya)[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^teplic[a-z0-9-]*\.html$ /produkciya/? [L,R=301]
-RewriteRule ^stekla-dlya-xolodilnoj-vitriny\.html$ /produkciya/? [L,R=301]
+RewriteRule ^dveri[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^mezhkomnatnye-dveri[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^mebel[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^izdeli[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^fartuk[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^kuxonnyj-fartuk[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^skinali[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^stoleshnic[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^polk[ai][-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^(peregorodk|partition)[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^(balkon|osteklenie|veranda)[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^dushev[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^(sauna|banya)[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^teplic[a-z0-9-]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^stekla-dlya-xolodilnoj-vitriny\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
 # Восстановленная страница «Витринное стекло»: 200 по историческому .html-URL
 RewriteRule ^vitrinnoe-steklo\.html$ vitrinnoe-steklo/index.php [L]
-RewriteRule ^vitrinnoe-steklo/?$ /vitrinnoe-steklo.html [R=301,L]
+RewriteRule ^vitrinnoe-steklo/?$ https://%{HTTP_HOST}/vitrinnoe-steklo.html [R=301,L]
 # Архив старого черновика-слага → актуальная страница
-RewriteRule ^listovoe-vitrinnoe-steklo/?$ /vitrinnoe-steklo.html [R=301,L]
-RewriteRule ^poly[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
+RewriteRule ^listovoe-vitrinnoe-steklo/?$ https://%{HTTP_HOST}/vitrinnoe-steklo.html [R=301,L]
+RewriteRule ^poly[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
 # Tripleks = laminated glass product (доп. обработка), preserved /produkciya/ mapping from old .htaccess
-RewriteRule ^tripleks[-a-z0-9]*\.html$ /produkciya/? [L,R=301]
+RewriteRule ^tripleks[-a-z0-9]*\.html$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
 
 # --- Glass types (материал) → /steklo/ ---
-RewriteRule ^(armirovannoe|osvetlennoe|listovoe|polirovannoe|matovoe|tonirovann|uzorchat|krizet|satinato)[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^(prozrachnoe|bronza|seroe|zelenoe)-steklo[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^okonnoe-steklo[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^(steklo-optom|obzor-steklo|steklo-10-mm)[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^steklo[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^rasprodazha-armirovannogo-stekla\.html$ /steklo/? [L,R=301]
+RewriteRule ^(armirovannoe|osvetlennoe|listovoe|polirovannoe|matovoe|tonirovann|uzorchat|krizet|satinato)[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^(prozrachnoe|bronza|seroe|zelenoe)-steklo[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^okonnoe-steklo[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^(steklo-optom|obzor-steklo|steklo-10-mm)[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^steklo[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^rasprodazha-armirovannogo-stekla\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
 # Catch "anything-steklo-anything.html" that hasn't matched yet
-RewriteRule ^[a-z0-9-]*-steklo[-a-z0-9]*\.html$ /steklo/? [L,R=301]
-RewriteRule ^[a-z0-9-]*-stekla[-a-z0-9]*\.html$ /steklo/? [L,R=301]
+RewriteRule ^[a-z0-9-]*-steklo[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^[a-z0-9-]*-stekla[-a-z0-9]*\.html$ https://%{HTTP_HOST}/steklo/? [L,R=301]
 
 # --- WordPress system URLs ---
-RewriteRule ^wp-json/(.*)$ / [L,R=301]
-RewriteRule ^wp-content/(.*)$ / [L,R=301]
-RewriteRule ^wp-includes/(.*)$ / [L,R=301]
-RewriteRule ^wp-admin/?(.*)$ / [L,R=301]
+RewriteRule ^wp-json/(.*)$ https://%{HTTP_HOST}/ [L,R=301]
+RewriteRule ^wp-content/(.*)$ https://%{HTTP_HOST}/ [L,R=301]
+RewriteRule ^wp-includes/(.*)$ https://%{HTTP_HOST}/ [L,R=301]
+RewriteRule ^wp-admin/?(.*)$ https://%{HTTP_HOST}/ [L,R=301]
 
 # --- WordPress taxonomy URLs ---
 # Keep real live subpages accessible
 RewriteRule ^steklo/vidy-stekla/ - [L]
 RewriteRule ^steklo/zakalennoe-vs-obychnoe/ https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html [L,R=301]
-RewriteRule ^steklo/tonirovannoe-steklo(/.*)?$ /steklo/? [L,R=301]
-RewriteRule ^steklo/matovoe-steklo(/.*)?$ /steklo/? [L,R=301]
-RewriteRule ^steklo/tripleks(/.*)?$ /produkciya/? [L,R=301]
-RewriteRule ^steklo/(.+)$ /steklo/? [L,R=301]
+RewriteRule ^steklo/tonirovannoe-steklo(/.*)?$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^steklo/matovoe-steklo(/.*)?$ https://%{HTTP_HOST}/steklo/? [L,R=301]
+RewriteRule ^steklo/tripleks(/.*)?$ https://%{HTTP_HOST}/produkciya/? [L,R=301]
+RewriteRule ^steklo/(.+)$ https://%{HTTP_HOST}/steklo/? [L,R=301]
 
 # --- Unrelated old articles/news → 410 Gone ---
 # These are WordPress blog posts that have no equivalent on the new site.

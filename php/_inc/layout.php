@@ -34,7 +34,12 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     if ($canonical) {
         $pageUrl = $canonical;
     } else {
-        $pageUrl = $siteUrl . ($_SERVER['REQUEST_URI'] ?? '/');
+        // Канонический URL всегда БЕЗ query-строки: ?vpage=/?utm_/?url= — это
+        // параметрические дубли одной и той же страницы. Self-canonical на них
+        // плодил дубли в индексе (Я.Вебмастер: DUPLICATE_PAGES, GSC: «страница — копия»).
+        $reqUri  = $_SERVER['REQUEST_URI'] ?? '/';
+        $qPos    = strpos($reqUri, '?');
+        $pageUrl = $siteUrl . ($qPos === false ? $reqUri : substr($reqUri, 0, $qPos));
     }
 
     $descEsc = e(t($description));

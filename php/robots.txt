@@ -11,6 +11,10 @@ Disallow: /*?utm_*
 Disallow: /*?fbclid=
 Disallow: /*?yclid=
 
+# Склейка параметрических дублей (директива Яндекса):
+# ?vpage=, ?url=, метки — это одна и та же страница.
+Clean-param: vpage&url&utm_source&utm_medium&utm_campaign&utm_term&utm_content&fbclid&yclid&gclid&_openstat
+
 Sitemap: https://pushkino.steklotrade.com/sitemap.xml
 
 Host: pushkino.steklotrade.com
