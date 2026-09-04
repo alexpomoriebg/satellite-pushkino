@@ -34,6 +34,10 @@ function json_save(string $path, array $data): bool
         mkdir($dir, 0755, true);
     }
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    // Формат как в репозитории (отступ 2 пробела, LF, перевод строки в конце) — иначе каждая
+    // правка CMS даёт диф на весь файл и реальное изменение теряется в шуме.
+    $json = preg_replace_callback('/^ +/m', function ($m) { return str_repeat(' ', intdiv(strlen($m[0]), 2)); }, $json) . "
+";
     $ok = file_put_contents($path, $json, LOCK_EX) !== false;
     if ($ok && strpos(basename($path), '.') === 0) {
         @chmod($path, 0600);                 // dot-файлы (_data/.auth.json и т.п.) — только владелец
