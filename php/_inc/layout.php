@@ -131,6 +131,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
 
     $phoneRaw = e($c['phone_raw'] ?? '');
     $phone    = e($c['phone'] ?? '');
+    $emailHdr = e($c['email'] ?? '');
 
     ?>
 <!DOCTYPE html>
@@ -182,7 +183,12 @@ function layout_head(string $title, string $description, ?string $canonical = nu
   <header class="header">
     <div class="header__inner">
       <a href="/" class="header__logo"><?= e($companyName) ?> <span>| <?= e($cityName) ?></span></a>
-      <a href="tel:<?= $phoneRaw ?>" class="header__phone"><?= $phone ?></a>
+      <div class="header__contacts">
+        <a href="tel:<?= $phoneRaw ?>" class="header__phone"><?= $phone ?></a>
+<?php if ($emailHdr): ?>
+        <a href="mailto:<?= $emailHdr ?>" class="header__mail"><?= $emailHdr ?></a>
+<?php endif; ?>
+      </div>
     </div>
   </header>
 
