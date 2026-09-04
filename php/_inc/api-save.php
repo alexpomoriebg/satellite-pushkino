@@ -83,8 +83,12 @@ foreach ($regions as $regionName => $html) {
     $changed++;
 }
 
+// Правки → в репозиторий GitHub (единая схема деплоя). Ошибка синка не отменяет сохранение на сайте.
+$git = $changed > 0 ? git_flush() : ['configured' => git_cfg()['configured'], 'committed' => 0, 'pending' => 0, 'error' => ''];
+
 echo json_encode([
     'ok'      => empty($errors),
     'changed' => $changed,
     'errors'  => $errors,
+    'git'     => $git,
 ]);

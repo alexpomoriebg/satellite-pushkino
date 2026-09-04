@@ -605,7 +605,14 @@ body.cms-editing a:hover { outline-color: rgba(9,132,227,.8); background: rgba(9
         try {
           var resp = JSON.parse(xhr.responseText);
           if (resp.ok) {
-            status.textContent = 'Сохранено (' + resp.changed + ')';
+            var g = resp.git || {};
+            if (g.committed > 0 && !g.pending) {
+              status.textContent = 'Сохранено и отправлено в репозиторий (' + resp.changed + ')';
+            } else if (g.error) {
+              status.textContent = 'Сохранено на сайте, но НЕ в репозитории: ' + g.error;
+            } else {
+              status.textContent = 'Сохранено (' + resp.changed + ')';
+            }
             // Update originals so Cancel won't revert saved changes
             for (var k in changed) {
               originals[k] = changed[k];

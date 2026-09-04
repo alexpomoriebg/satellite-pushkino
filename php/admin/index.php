@@ -30,9 +30,29 @@ if (!empty($_SESSION['admin_auth'])) {
                 $page['seo']['description'] = trim($_POST['seo_desc'] ?? '');
                 page_save($slug, $page);
                 $seoSaved = $slug;
+                $gitResult = git_flush();
             }
         }
     }
+
+    // GitHub: сохранить токен / повторить отправку очереди
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && in_array($_POST['_action'] ?? '', ['git_token', 'git_retry'], true)) {
+        $token = $_POST['_csrf'] ?? '';
+        if ($token && hash_equals($_SESSION['_csrf'] ?? '', $token)) {
+            if ($_POST['_action'] === 'git_token') {
+                $tok = trim($_POST['github_token'] ?? '');
+                if ($tok === '' || preg_match('/^(github_pat_[A-Za-z0-9_]{20,}|gh[pous]_[A-Za-z0-9]{20,})$/', $tok)) {
+                    git_set_token($tok);
+                    $gitMsg = $tok === '' ? 'Токен удалён' : 'Токен сохранён';
+                } else {
+                    $gitMsg = 'Это не похоже на GitHub-токен (github_pat_… или ghp_…)';
+                }
+            }
+            $gitResult = git_flush();
+        }
+    }
+    $gitCfg   = git_cfg();
+    $gitQueue = git_queue();
 
     // Load all pages
     $pagesDir = base_path() . '/_data/pages/';
@@ -131,6 +151,43 @@ textarea{resize:vertical;min-height:60px}
   Для редактирования текста на страницах — перейдите на сайт и нажмите «Редактировать» в верхней панели.<br>
   Здесь можно управлять SEO-заголовками и описаниями каждой страницы.
 </div>
+
+<details class="card" <?= (!$gitCfg['configured'] || !empty($gitQueue['files'])) ? 'open' : '' ?>>
+  <summary class="card-head">
+    <h2>Репозиторий GitHub
+      <span class="url"><?= $gitCfg['configured'] ? 'подключён · ' . e($gitCfg['repo']) : 'не подключён' ?>
+        <?= !empty($gitQueue['files']) ? ' · в очереди: ' . count($gitQueue['files']) : '' ?></span>
+    </h2>
+  </summary>
+  <div class="card-body" style="padding-top:1rem;">
+    <p style="font-size:.88rem;color:#aaa">Каждое сохранение на сайте отправляется коммитом в репозиторий
+      <b><?= e($gitCfg['repo'] ?: '— укажите github_repo в city.json') ?></b>, откуда сайт публикуется.
+      Без токена правки живут только на сервере и будут затёрты следующим деплоем.</p>
+    <?php if (!empty($gitMsg)): ?><p class="saved-msg" style="margin-top:.6rem"><?= e($gitMsg) ?></p><?php endif; ?>
+    <?php if (isset($gitResult)): ?>
+      <p style="margin-top:.6rem;font-size:.88rem;color:<?= $gitResult['error'] ? '#e94560' : '#00b894' ?>">
+        <?= $gitResult['committed'] ? 'Отправлено файлов: ' . (int)$gitResult['committed'] . '. ' : '' ?>
+        <?= $gitResult['error'] ? e($gitResult['error']) : ($gitResult['pending'] ? '' : 'Очередь пуста.') ?>
+      </p>
+    <?php endif; ?>
+    <?php if (!empty($gitQueue['files'])): ?>
+      <p style="margin-top:.6rem;font-size:.85rem;color:#e94560">Не отправлено: <?= e(implode(', ', array_map('basename', $gitQueue['files']))) ?>
+        <?= !empty($gitQueue['last_error']) ? '<br>Последняя ошибка: ' . e($gitQueue['last_error']) : '' ?></p>
+      <form method="POST" style="margin-top:.6rem">
+        <input type="hidden" name="_action" value="git_retry">
+        <input type="hidden" name="_csrf" value="<?= e($csrf) ?>">
+        <button type="submit" class="save-btn">Повторить отправку</button>
+      </form>
+    <?php endif; ?>
+    <form method="POST">
+      <input type="hidden" name="_action" value="git_token">
+      <input type="hidden" name="_csrf" value="<?= e($csrf) ?>">
+      <label>GitHub-токен (fine-grained, Contents: Read and write на репозитории сателлитов)<?= $gitCfg['configured'] ? ' — задан ✓, введите новый чтобы заменить' : '' ?></label>
+      <input type="text" name="github_token" value="" placeholder="github_pat_…" autocomplete="off">
+      <div class="save-row"><button type="submit" class="save-btn">Сохранить токен</button></div>
+    </form>
+  </div>
+</details>
 
 <?php foreach ($pages as $p): ?>
 <details class="card" open>

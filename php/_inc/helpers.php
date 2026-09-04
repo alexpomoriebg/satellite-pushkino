@@ -34,10 +34,19 @@ function json_save(string $path, array $data): bool
         mkdir($dir, 0755, true);
     }
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    return file_put_contents($path, $json) !== false;
+    $ok = file_put_contents($path, $json, LOCK_EX) !== false;
+    if ($ok && strpos(basename($path), '.') === 0) {
+        @chmod($path, 0600);                 // dot-файлы (_data/.auth.json и т.п.) — только владелец
+    }
+    if ($ok && function_exists('git_enqueue')) {
+        git_enqueue($path);                   // правка → очередь на коммит в GitHub (см. git-sync.php)
+    }
+    return $ok;
 }
 
 // ── Base path ────────────────────────────────────────────────────────
+
+require_once __DIR__ . '/git-sync.php';
 
 function base_path(): string
 {
