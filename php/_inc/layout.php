@@ -291,7 +291,6 @@ function layout_foot(): void
         <div>
           <div class="footer__title">Сервисы</div>
           <div style="display:flex;flex-direction:column;gap:.35rem;">
-            <a href="/teplicy/">Калькулятор стекла для теплиц</a>
             <a href="/online-raschet/">Онлайн-расчёт</a>
             <a href="/dostavka/">Доставка</a>
             <a href="/kontakty/">Контакты</a>

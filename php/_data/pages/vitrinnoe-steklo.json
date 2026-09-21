@@ -107,7 +107,7 @@
         "cards": [
           { "title": "Каталог стекла", "desc": "Все виды листового стекла и цены", "link": { "href": "/steklo/", "title": "Открыть каталог" } },
           { "title": "Виды стекла: гид", "desc": "Какое стекло подойдёт под вашу задачу", "link": { "href": "/steklo/vidy-stekla/", "title": "Читать" } },
-          { "title": "Закалённое vs обычное", "desc": "Когда листовое стекло нужно закалять", "link": { "href": "/steklo/zakalennoe-vs-obychnoe/", "title": "Сравнение" } },
+          { "title": "Закалённое vs обычное", "desc": "Когда листовое стекло нужно закалять", "link": { "href": "https://steklotrade.com/kak-otlichit-zakalennoe-i-energosberegayushhee.html", "title": "Сравнение" } },
           { "title": "Услуги обработки", "desc": "Резка в размер, кромка, сверление, закалка", "link": { "href": "/uslugi/", "title": "Подробнее" } },
           { "title": "Онлайн-расчёт", "desc": "Рассчитать стекло по размерам", "link": { "href": "/online-raschet/", "title": "Калькулятор" } },
           { "title": "Витринное стекло (каталог)", "desc": "Полный каталог на {parent_site}", "link": { "href": "{parent_site_url}/vitrinnoe-steklo.html", "title": "На {parent_site}" } }

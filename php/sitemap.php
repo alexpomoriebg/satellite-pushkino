@@ -16,8 +16,20 @@ echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 $pages_dir = base_path() . '/_data/pages';
 $slugs = [];
 foreach (glob($pages_dir . '/*.json') as $file) {
+    $pj = json_decode((string) file_get_contents($file), true);
+    // Служебные noindex-страницы (consent, cookie, policy) в sitemap не нужны
+    if (isset($pj['seo']['robots']) && stripos($pj['seo']['robots'], 'noindex') !== false) {
+        continue;
+    }
     $slugs[] = basename($file, '.json');
 }
+// Главная — первой
+usort($slugs, function ($a, $b) {
+    if ($a === $b) return 0;
+    if ($a === 'index') return -1;
+    if ($b === 'index') return 1;
+    return strcmp($a, $b);
+});
 
 $priorities = [
     'index' => '1.0',

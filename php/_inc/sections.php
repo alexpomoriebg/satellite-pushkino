@@ -19,6 +19,23 @@ function _slug(): string
     return $GLOBALS['_cms_page_slug'] ?? 'index';
 }
 
+/** UTM для ссылок на калькулятор головного (канал sat-calc): источник — поддомен, content — slug страницы */
+function sat_calc_url(string $href): string
+{
+    if (strpos($href, 'steklotrade.com/raschyot.html') === false || strpos($href, 'utm_') !== false) {
+        return $href;
+    }
+    $c    = city();
+    $host = ($c['city_slug'] ?? 'sat') . '.steklotrade.com';
+    $q    = http_build_query([
+        'utm_source'   => $host,
+        'utm_medium'   => 'referral',
+        'utm_campaign' => 'sat-calc',
+        'utm_content'  => _slug(),
+    ]);
+    return $href . (strpos($href, '?') === false ? '?' : '&') . $q;
+}
+
 function _is_editing(): bool
 {
     return !empty($_SESSION['admin_auth']);
@@ -101,7 +118,7 @@ function render_feature_cta_block(): void
     $featHref  = e(t($feat['href'] ?? '#'));
     $calcTitle = t($calc['title'] ?? '');
     $calcDesc  = t($calc['desc'] ?? '');
-    $calcHref  = e(t($calc['href'] ?? '#'));
+    $calcHref  = e(sat_calc_url(t($calc['href'] ?? '#')));
     ?>
 <section class="section feature-cta">
   <div class="container">
@@ -401,7 +418,7 @@ function render_cta(array $data, int $si = 0): void
     $heading = t($data['heading'] ?? '');
     $text    = t($data['text'] ?? '');
     $label   = t($data['button_label'] ?? '');
-    $href    = t($data['button_href'] ?? '#');
+    $href    = sat_calc_url(t($data['button_href'] ?? '#'));
     ?>
 <section class="cta">
   <div class="container" style="position:relative;">
