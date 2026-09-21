@@ -42,20 +42,6 @@ jobs:
             --ignore=*/vendor/* \
             -s ./php/_inc/ ./php/index.php
 
-  deploy:
-    needs: checks
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./php/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
+# Деплой на Timeweb делает VPS (/opt/sat-deploy, исходник Cowork/tools/sat-deploy):
+# раннеры GitHub ловят бан FTP (ETIMEDOUT). VPS выгружает коммит с зелёным job «checks»
+# и ставит статус коммита «vps-deploy». 21.09.2026.
