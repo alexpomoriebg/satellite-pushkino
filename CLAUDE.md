@@ -1,6 +1,6 @@
-# Satellite CMS — Орехово-Зуево
+# Satellite CMS — Пушкино
 
-Flat-file PHP CMS. Продакшен: orehovo-zuevo.steklotrade.com (бренд Стеклотрейд)
+Flat-file PHP CMS. Продакшен: pushkino.steklotrade.com (бренд Стеклотрейд)
 
 ## Деплой
 Push в `main` → GitHub Actions → проверки → FTP на Timeweb.
