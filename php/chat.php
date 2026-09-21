@@ -2,7 +2,7 @@
 /**
  * Прокси чат-виджета → бот на VPS. Same-origin (443), скрывает адрес/секрет бота от клиента.
  * Виджет шлёт POST {sid, message}. Мы добавляем секрет+бренд, ходим на бот, отдаём {reply}.
- * BRAND: 'steklotrade' на steklotrade.com; 'stekloltd' на stekloltd.ru (менять при заливке на другой сайт).
+ * BRAND: 'steklotrade' — фиксированный бренд сети steklotrade.com (не менять, не переиспользовать для других сайтов).
  * Rate-limit по IP (экономия токенов бота — API по ключу). PHP 5.6-safe.
  */
 define('BRAND', 'steklotrade');
