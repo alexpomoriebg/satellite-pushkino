@@ -96,7 +96,6 @@ function t(string $str): string
         '{phone_raw}'           => $c['phone_raw'] ?? '',
         '{email}'               => $c['email'] ?? '',
         '{address_production}'  => $c['address_production'] ?? '',
-        '{address_old}'         => $c['address_old'] ?? '',
         '{parent_site}'         => $c['parent_site'] ?? '',
         '{parent_site_url}'     => $c['parent_site_url'] ?? '',
         '{company_name}'        => $c['company_name'] ?? '',

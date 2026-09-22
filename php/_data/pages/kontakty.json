@@ -34,7 +34,7 @@
           },
           {
             "cards": [
-              { "type": "no_office", "heading": "Офис в г. {city_name}" },
+              { "type": "no_office", "heading": "Получение заказа" },
               { "type": "parent_link", "heading": "Полный каталог и цены" }
             ]
           }

@@ -534,8 +534,7 @@ function _render_contact_notice(array $c, array $card): void
 function _render_contact_no_office(array $c, array $card): void
 {
     $city         = $c['city_name'] ?? '';
-    $heading      = $card['heading'] ?? ('Филиал в г. ' . $city);
-    $address      = $c['address_old'] ?? '';
+    $heading      = $card['heading'] ?? 'Получение заказа';
     $legal        = $c['company_legal'] ?? '';
     $email        = $c['email'] ?? 'info@steklotrade.com';
     $prodAddr     = $c['address_production_full'] ?? 'г. Москва, Автомобильный проезд, д. 10';
@@ -552,9 +551,6 @@ function _render_contact_no_office(array $c, array $card): void
   </div>
 <?php if ($legal): ?>
   <p style="margin:0 0 .35rem;line-height:1.5;font-size:.95rem;color:var(--text-light);"><?= e($legal) ?></p>
-<?php endif; ?>
-<?php if ($address): ?>
-  <p style="margin-bottom:.5rem;line-height:1.6;font-weight:600;"><?= e($address) ?></p>
 <?php endif; ?>
   <div style="display:inline-block;margin-bottom:.75rem;padding:.2rem .6rem;background:#fff7e0;border:1px solid #f0c850;border-radius:.5rem;font-size:.85rem;font-weight:600;color:#8a6500;"><?= e($badge) ?></div>
 <?php if ($isPickupSelf): ?>

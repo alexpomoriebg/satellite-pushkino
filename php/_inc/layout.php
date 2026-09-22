@@ -44,26 +44,16 @@ function layout_head(string $title, string $description, ?string $canonical = nu
 
     $descEsc = e(t($description));
 
-    // Schema.org LocalBusiness
+    // Schema.org Organization (без LocalBusiness/адреса — офиса в городе нет, продажи онлайн)
     $localBusiness = json_encode([
         '@context'     => 'https://schema.org',
-        '@type'        => 'LocalBusiness',
+        '@type'        => 'Organization',
         'name'         => ($c['company_name'] ?? '') . ' — ' . ($c['city_name'] ?? ''),
         'description'  => t($description),
         'url'          => $siteUrl,
         'telephone'    => $c['phone'] ?? '',
         'email'        => $c['email'] ?? '',
-        'address'      => [
-            '@type'           => 'PostalAddress',
-            'addressLocality' => $c['city_name'] ?? '',
-            'addressRegion'   => $c['city_region'] ?? '',
-            'addressCountry'  => 'RU',
-        ],
-        'geo' => [
-            '@type'     => 'GeoCoordinates',
-            'latitude'  => $c['coords']['lat'] ?? 0,
-            'longitude' => $c['coords']['lng'] ?? 0,
-        ],
+        'areaServed'   => $c['city_name'] ?? '',
         'openingHours' => 'Mo-Fr 09:00-18:00, Sa 10:00-15:00',
         'priceRange'   => '$$',
     ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
@@ -262,8 +252,6 @@ function layout_foot(): void
     $companyAcct     = e($c['company_bank_account'] ?? '');
     $companyBik      = e($c['company_bank_bik'] ?? '');
     $companyCorr     = e($c['company_bank_corr'] ?? '');
-    $addressOld      = e($c['address_old'] ?? '');
-    $cityName        = e($c['city_name'] ?? '');
     $year            = date('Y');
 
     ?>
@@ -317,9 +305,6 @@ function layout_foot(): void
 <?php endif; ?>
 <?php if ($companyLegalAddr): ?>
             <div>Юр. адрес: <span itemprop="address"><?= $companyLegalAddr ?></span></div>
-<?php endif; ?>
-<?php if ($addressOld): ?>
-            <div style="margin-top:.25rem;">Филиал в&nbsp;г.&nbsp;<?= $cityName ?> (онлайн-офис): <?= $addressOld ?></div>
 <?php endif; ?>
           </div>
 <?php if ($companyAcct): ?>
