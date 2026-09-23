@@ -330,6 +330,7 @@ function layout_foot(): void
   </footer>
 
   <!-- Cookie-уведомление (Роскомнадзор + 152-ФЗ) -->
+  <style>@media (max-width:600px){#cookie-notice{bottom:0!important;left:0!important;right:0!important;border-radius:0!important;padding:.5rem .75rem!important;font-size:.72rem!important;line-height:1.3!important}#cookie-notice>div{flex-wrap:nowrap!important;gap:.6rem!important}#cookie-notice>div>div{min-width:0!important}#cookie-notice button{padding:.4rem .7rem!important;flex:none}}</style>
   <div id="cookie-notice" style="display:none;position:fixed;bottom:1rem;left:1rem;right:1rem;max-width:780px;margin:0 auto;padding:1rem 1.25rem;background:#1a1a1a;color:#f0f0f0;border-radius:.6rem;box-shadow:0 6px 24px rgba(0,0,0,.25);z-index:9999;font-size:.92rem;line-height:1.5;">
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;">
       <div style="flex:1;min-width:240px;">Сайт использует файлы cookies и&nbsp;собирает данные для аналитики (Яндекс&nbsp;Метрика). Продолжая просмотр, вы&nbsp;соглашаетесь с&nbsp;<a href="/cookie/" style="color:#7cb6ff;">политикой&nbsp;cookies</a> и&nbsp;<a href="/policy/" style="color:#7cb6ff;">обработкой&nbsp;ПДн</a>.</div>
