@@ -537,7 +537,7 @@ function _render_contact_no_office(array $c, array $card): void
     $heading      = $card['heading'] ?? 'Получение заказа';
     $legal        = $c['company_legal'] ?? '';
     $email        = $c['email'] ?? 'info@steklotrade.com';
-    $prodAddr     = $c['address_production_full'] ?? 'г. Москва, Автомобильный проезд, д. 10';
+    $prodAddr     = $c['address_production_full'] ?? 'склады в Москве';
     $masterAddr   = $c['address_masterskaya_full'] ?? 'г. Электросталь, ул. Карла Маркса, д. 55А';
     $pickupCity   = $c['pickup_city'] ?? '';
     // If this city IS the pickup city (Электросталь) — show "офис и мастерская" вариант
@@ -556,7 +556,7 @@ function _render_contact_no_office(array $c, array $card): void
 <?php if ($isPickupSelf): ?>
   <p style="margin-bottom:.5rem;line-height:1.6;">По указанному адресу работает наша <strong>мастерская</strong>: здесь&nbsp;же выдаём готовые изделия местного ассортимента (прозрачное 4&nbsp;мм, армированное, узорчатое, зеркала, мелкий рез).</p>
 <?php else: ?>
-  <p style="margin-bottom:.5rem;line-height:1.6;"><strong>В офисе выдачи заказов нет.</strong> Изделия отгружаются только с&nbsp;производства в&nbsp;Москве и&nbsp;из&nbsp;мастерской в&nbsp;Электростали.</p>
+  <p style="margin-bottom:.5rem;line-height:1.6;"><strong>В офисе выдачи заказов нет.</strong> Изделия отгружаются только со&nbsp;складов в&nbsp;Москве и&nbsp;из&nbsp;мастерской в&nbsp;Электростали.</p>
 <?php endif; ?>
   <p style="margin-bottom:.75rem;line-height:1.6;">Во&nbsp;избежание недоразумений все заказы принимаются <strong>только письменно</strong> по&nbsp;электронной почте <a href="mailto:<?= e($email) ?>" style="color:var(--accent);"><?= e($email) ?></a>.</p>
   <div style="margin-bottom:1rem;padding:.75rem 1rem;background:#f8f9fb;border-radius:8px;font-size:.9rem;line-height:1.55;">
