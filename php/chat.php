@@ -41,8 +41,8 @@ curl_setopt_array($ch, array(
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT => 30,
     CURLOPT_CONNECTTIMEOUT => 8,
-    CURLOPT_SSL_VERIFYPEER => false,
-    CURLOPT_SSL_VERIFYHOST => false,
+    CURLOPT_SSL_VERIFYPEER => true,   // сертификат на 8444 валидный (Let's Encrypt), проверено с хостингов 24.09.2026
+    CURLOPT_SSL_VERIFYHOST => 2,
 ));
 $resp = curl_exec($ch);
 $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
