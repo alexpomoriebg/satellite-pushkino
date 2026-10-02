@@ -24,8 +24,8 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     // B1: суффикс « | Бренд Город» — только если итоговый title укладывается в 70 знаков,
     // иначе отдаём title как в JSON (длинный хвост режется в сниппете, город повторяется дважды).
     $titleSuffix = ' | ' . $companyName . ' ' . $cityName;
-    if (stripos($titleResolved, $companyName) !== false
-        || mb_strlen($titleResolved . $titleSuffix, 'UTF-8') > 70) {
+    // B1 (лимит 70 знаков) ОТЛОЖЕН до замера 06.10.2026 — тогда вернуть условие: || mb_strlen($titleResolved . $titleSuffix, 'UTF-8') > 70
+    if (stripos($titleResolved, $companyName) !== false) {
         $fullTitle = e($titleResolved);
     } else {
         $fullTitle = e($titleResolved . $titleSuffix);
@@ -48,10 +48,10 @@ function layout_head(string $title, string $description, ?string $canonical = nu
 
     $descEsc = e(t($description));
 
-    // Schema.org LocalBusiness: areaServed = город из city.json; address — только если в city.json есть адрес в городе
+    // Schema.org Organization (карты продвигаем только для Электростали, 02.10) + areaServed = город из city.json; address — только если в city.json есть адрес в городе
     $localBusiness = json_encode([
         '@context'     => 'https://schema.org',
-        '@type'        => 'LocalBusiness',
+        '@type'        => 'Organization',
         'name'         => ($c['company_name'] ?? '') . ' — ' . ($c['city_name'] ?? ''),
         'description'  => t($description),
         'url'          => $siteUrl,
