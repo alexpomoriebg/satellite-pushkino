@@ -895,7 +895,7 @@ function render_shower_calculator(array $data, int $si = 0): void
         <div class="sc__price-block" id="sc-price"></div>
         <div class="sc__warnings" id="sc-warnings"></div>
         <div class="sc__prod-note">
-          <strong>Мы изготовим</strong> закалённое стекло по вашим размерам за 5–7 рабочих дней. Полировка кромок включена. Доставка по <?= e($c['city_dative'] ?? $c['city_name']) ?> и всей Московской области.
+          <strong>Мы изготовим</strong> закалённое стекло по вашим размерам в срок от 3 дней. Полировка кромок включена. Доставка по <?= e($c['city_dative'] ?? $c['city_name']) ?> и всей Московской области.
         </div>
       </div>
 
