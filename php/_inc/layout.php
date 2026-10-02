@@ -21,10 +21,14 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     $cityName    = $c['city_name'] ?? '';
     $titleResolved = t($title);
     // Don't append brand suffix if title already contains company name
-    if (stripos($titleResolved, $companyName) !== false) {
+    // B1: суффикс « | Бренд Город» — только если итоговый title укладывается в 70 знаков,
+    // иначе отдаём title как в JSON (длинный хвост режется в сниппете, город повторяется дважды).
+    $titleSuffix = ' | ' . $companyName . ' ' . $cityName;
+    if (stripos($titleResolved, $companyName) !== false
+        || mb_strlen($titleResolved . $titleSuffix, 'UTF-8') > 70) {
         $fullTitle = e($titleResolved);
     } else {
-        $fullTitle = e($titleResolved) . ' | ' . e($companyName) . ' ' . e($cityName);
+        $fullTitle = e($titleResolved . $titleSuffix);
     }
 
     $citySlug   = $c['city_slug'] ?? '';
@@ -44,10 +48,10 @@ function layout_head(string $title, string $description, ?string $canonical = nu
 
     $descEsc = e(t($description));
 
-    // Schema.org Organization (без LocalBusiness/адреса — офиса в городе нет, продажи онлайн)
+    // Schema.org LocalBusiness: areaServed = город из city.json; address — только если в city.json есть адрес в городе
     $localBusiness = json_encode([
         '@context'     => 'https://schema.org',
-        '@type'        => 'Organization',
+        '@type'        => 'LocalBusiness',
         'name'         => ($c['company_name'] ?? '') . ' — ' . ($c['city_name'] ?? ''),
         'description'  => t($description),
         'url'          => $siteUrl,
@@ -146,6 +150,8 @@ function layout_head(string $title, string $description, ?string $canonical = nu
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?= e($pageUrl) ?>">
   <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="<?= e($siteUrl) ?>/images/products/prozrachnoe-steklo.webp">
+  <meta name="twitter:card" content="summary_large_image">
 
   <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json"><?= $localBusiness ?></script>

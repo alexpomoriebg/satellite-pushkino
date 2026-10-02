@@ -78,6 +78,12 @@ foreach ($slugs as $slug) {
     }
     echo "  <url>\n";
     echo "    <loc>{$base}{$path}</loc>\n";
+    // B4: lastmod = дата изменения JSON страницы (VPS ftp-deploy выгружает только изменённые файлы,
+    // правки из CMS пишут JSON на сервере — mtime отражает реальную правку)
+    $mtime = @filemtime($pages_dir . '/' . $slug . '.json');
+    if ($mtime) {
+        echo '    <lastmod>' . date('Y-m-d', $mtime) . "</lastmod>\n";
+    }
     echo "    <changefreq>{$freq}</changefreq>\n";
     echo "    <priority>{$priority}</priority>\n";
     echo "  </url>\n";

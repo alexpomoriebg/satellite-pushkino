@@ -559,3 +559,7 @@ details p { margin-top: .65rem; color: var(--text-light); font-size: .92rem; lin
 .feature-cta__desc { font-size: .9rem; line-height: 1.45; opacity: .92; margin-bottom: .6rem; }
 .feature-cta__arrow { font-size: .85rem; font-weight: 600; opacity: .85; }
 @media (max-width: 768px) { .feature-cta { padding: 1.25rem 0; } .feature-cta__grid { grid-template-columns: 1fr; gap: .75rem; } .feature-cta__card { padding: 1.1rem; } .feature-cta__icon { width: 44px; height: 44px; font-size: 1.7rem; } .feature-cta__title { font-size: .95rem; } .feature-cta__desc { font-size: .85rem; } }
+
+/* B3: пока cookie-баннер открыт, кнопка чата на мобильном поднимается над ним,
+   чтобы «Принимаю» была видна целиком (баннер на 360 — 76px высотой) */
+@media (max-width:600px){body:has(#cookie-notice[style*="display: block"]) .sc-btn{bottom:96px}}
