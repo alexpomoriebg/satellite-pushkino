@@ -101,6 +101,24 @@
       }
     },
     {
+      "type": "card_grid",
+      "data": {
+        "heading": "Ещё по теме",
+        "subtitle": null,
+        "columns": 2,
+        "alt_bg": false,
+        "cards": [
+          {
+            "title": "Безрамные душевые ограждения",
+            "link": {
+              "href": "/steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka/",
+              "title": "Безрамные душевые ограждения"
+            }
+          }
+        ]
+      }
+    },
+    {
       "type": "cta",
       "data": {
         "heading": "Сколько стоит стекло для душевой в ваш размер",

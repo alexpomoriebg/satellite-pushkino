@@ -166,6 +166,24 @@
       }
     },
     {
+      "type": "card_grid",
+      "data": {
+        "heading": "Ещё по теме",
+        "subtitle": null,
+        "columns": 2,
+        "alt_bg": false,
+        "cards": [
+          {
+            "title": "Замена стеклопакета в {city_prepositional}",
+            "link": {
+              "href": "/steklopakety/zamena-steklopaketa/",
+              "title": "Замена стеклопакета в {city_prepositional} — цены, сроки, без замены рамы"
+            }
+          }
+        ]
+      }
+    },
+    {
       "type": "text_block",
       "data": {
         "heading": "Как обработанное стекло попадает к вам",

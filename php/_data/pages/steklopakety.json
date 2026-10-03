@@ -278,6 +278,13 @@
               "href": "/steklo/",
               "title": "Стекло"
             }
+          },
+          {
+            "title": "Замена стеклопакета в {city_prepositional}",
+            "link": {
+              "href": "/steklopakety/zamena-steklopaketa/",
+              "title": "Замена стеклопакета в {city_prepositional} — без замены окна"
+            }
           }
         ]
       }

@@ -102,6 +102,38 @@
       }
     },
     {
+      "type": "card_grid",
+      "data": {
+        "heading": "Ещё по теме",
+        "subtitle": null,
+        "columns": 3,
+        "alt_bg": false,
+        "cards": [
+          {
+            "title": "Безрамные душевые ограждения",
+            "link": {
+              "href": "/steklo/bezramnye-dushevye-mirovye-trendy-low-iron-pokrytiya-zakalka/",
+              "title": "Безрамные душевые ограждения: мировые тренды стекла и покрытий"
+            }
+          },
+          {
+            "title": "Душевая кабина из стекла своими руками",
+            "link": {
+              "href": "/dushevye/dushevaya-iz-stekla-svoimi-rukami/",
+              "title": "Душевая кабина из стекла своими руками: от замера до первого душа"
+            }
+          },
+          {
+            "title": "Какое стекло выбрать для душевой кабины",
+            "link": {
+              "href": "/dushevye/steklo-dlya-dushevoj/",
+              "title": "Какое стекло выбрать для душевой кабины: полный гид"
+            }
+          }
+        ]
+      }
+    },
+    {
       "type": "cta",
       "data": {
         "heading": "Заказать стекло для душевой",

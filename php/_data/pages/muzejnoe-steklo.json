@@ -193,6 +193,13 @@
               "href": "{parent_site_url}/steklo-dlya-muzejnyx-vitrin.html",
               "title": "На {parent_site}"
             }
+          },
+          {
+            "title": "Листовое витринное стекло",
+            "link": {
+              "href": "/vitrinnoe-steklo.html",
+              "title": "Листовое витринное стекло"
+            }
           }
         ]
       }
