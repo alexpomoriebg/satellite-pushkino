@@ -563,3 +563,11 @@ details p { margin-top: .65rem; color: var(--text-light); font-size: .92rem; lin
 /* B3: пока cookie-баннер открыт, кнопка чата на мобильном поднимается над ним,
    чтобы «Принимаю» была видна целиком (баннер на 360 — 76px высотой) */
 @media (max-width:600px){body:has(#cookie-notice[style*="display: block"]) .sc-btn{bottom:96px}}
+
+/* === TABLES ≤600px: читаемая таблица, прокрутка внутри обёртки === */
+@media (max-width: 600px) {
+  .table-wrap, .article__content .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  .table-wrap table { min-width: 540px; font-size: .85rem; }
+  .table-wrap th, .table-wrap td { padding: .5rem .55rem; vertical-align: top; }
+  .table-wrap td:last-child, .table-wrap th:last-child { min-width: 5.5rem; }
+}
