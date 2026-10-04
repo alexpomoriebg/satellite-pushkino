@@ -92,9 +92,9 @@
             "image_alt": null,
             "specs": null,
             "link": {
-              "href": "{parent_site_url}/rezka.html",
-              "title": "Резка стекла. Расчёт стоимости онлайн",
-              "subtitle": "Актуальные цены на {parent_site}"
+              "href": "/rezka.html",
+              "title": "Резка стекла в {city_prepositional} — на заказ по вашим размерам",
+              "subtitle": "Подробная страница услуги"
             }
           },
           {
