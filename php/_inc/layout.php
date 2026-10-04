@@ -150,7 +150,10 @@ function layout_head(string $title, string $description, ?string $canonical = nu
   <meta property="og:type" content="website">
   <meta property="og:url" content="<?= e($pageUrl) ?>">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:image" content="<?= e($siteUrl) ?>/images/products/prozrachnoe-steklo.webp">
+  <meta property="og:image" content="<?= e($siteUrl) ?>/images/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Schema.org LocalBusiness -->
