@@ -123,6 +123,13 @@ function render_feature_cta_block(): void
 <section class="section feature-cta">
   <div class="container">
     <div class="feature-cta__grid">
+<?php
+    // Главная и раздел фишки — фишка первой; остальные страницы — сначала расчёт (запрос страницы коммерческий)
+    $featSlug = trim(t($feat['href'] ?? ''), '/');
+    $slug = _slug();
+    $featFirst = $slug === 'index' || ($featSlug !== '' && strpos($slug, $featSlug) === 0);
+    if ($featFirst):
+?>
       <a href="<?= $featHref ?>" class="feature-cta__card feature-cta__card--primary">
         <div class="feature-cta__icon">★</div>
         <div class="feature-cta__content">
@@ -139,6 +146,24 @@ function render_feature_cta_block(): void
           <div class="feature-cta__arrow">Рассчитать →</div>
         </div>
       </a>
+<?php else: ?>
+      <a href="<?= $calcHref ?>" class="feature-cta__card feature-cta__card--accent" target="_blank" rel="noopener">
+        <div class="feature-cta__icon">₽</div>
+        <div class="feature-cta__content">
+          <div class="feature-cta__title"><?= e($calcTitle) ?></div>
+          <div class="feature-cta__desc"><?= e($calcDesc) ?></div>
+          <div class="feature-cta__arrow">Рассчитать →</div>
+        </div>
+      </a>
+      <a href="<?= $featHref ?>" class="feature-cta__card feature-cta__card--primary">
+        <div class="feature-cta__icon">★</div>
+        <div class="feature-cta__content">
+          <div class="feature-cta__title"><?= e($featTitle) ?></div>
+          <div class="feature-cta__desc"><?= e($featDesc) ?></div>
+          <div class="feature-cta__arrow">Открыть →</div>
+        </div>
+      </a>
+<?php endif; ?>
     </div>
   </div>
 </section>
