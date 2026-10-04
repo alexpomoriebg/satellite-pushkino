@@ -1,4 +1,4 @@
-/* Свой чат-виджет Стеклотрейд/Дисконт-Стекло. Self-hosted, без зависимостей.
+/* Свой чат-виджет. Self-hosted, без зависимостей.
    Встраивается одним тегом: <script src="/chat-widget.js" defer></script>
    Общается с /chat.php (same-origin). Настройка (необязательно): window.STEKLO_CHAT = {name,greeting,accent,title}. */
 (function () {
