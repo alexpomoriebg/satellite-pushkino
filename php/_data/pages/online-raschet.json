@@ -59,9 +59,14 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/steklopakety/",
+              "title": "Стеклопакеты в {city_prepositional}: цены",
+              "subtitle": null
+            },
+            "link2": {
               "href": "{parent_site_url}/steklopakety.html",
-              "title": "Расчёт стоимости",
-              "subtitle": "{parent_site}"
+              "title": "Калькулятор стеклопакетов",
+              "subtitle": "Калькулятор на {parent_site}"
             }
           },
           {
@@ -74,9 +79,14 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/steklo/",
+              "title": "Каталог листового стекла в {city_prepositional}",
+              "subtitle": null
+            },
+            "link2": {
               "href": "{parent_site_url}/steklo.html",
-              "title": "Открыть каталог",
-              "subtitle": "{parent_site}"
+              "title": "Каталог листового стекла",
+              "subtitle": "Полный каталог на {parent_site}"
             }
           },
           {
@@ -89,9 +99,14 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/zerkala/",
+              "title": "Каталог зеркал в {city_prepositional}",
+              "subtitle": null
+            },
+            "link2": {
               "href": "{parent_site_url}/zerkala.html",
-              "title": "Открыть каталог",
-              "subtitle": "{parent_site}"
+              "title": "Каталог зеркал",
+              "subtitle": "Полный каталог на {parent_site}"
             }
           }
         ]

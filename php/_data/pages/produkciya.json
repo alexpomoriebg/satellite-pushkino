@@ -73,9 +73,14 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/zakalennoe-steklo/",
+              "title": "Закалённое стекло в {city_prepositional}",
+              "subtitle": "Каталог изделий и цены"
+            },
+            "link2": {
               "href": "{parent_site_url}/zakalennoe-steklo.html",
               "title": "Закалённое стекло",
-              "subtitle": "Каталог изделий и цены"
+              "subtitle": "Полный каталог на {parent_site}"
             }
           },
           {
@@ -87,7 +92,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": null
+            "link": {
+              "href": "/rezka.html",
+              "title": "Резка стекла в {city_prepositional}",
+              "subtitle": "По вашим размерам"
+            }
           },
           {
             "title": "Фартук для кухни",
@@ -98,7 +107,11 @@
             "image": null,
             "image_alt": null,
             "specs": null,
-            "link": null
+            "link": {
+              "href": "/rezka.html",
+              "title": "Резка стекла в {city_prepositional}",
+              "subtitle": "По вашим размерам"
+            }
           },
           {
             "title": "Зеркала",
@@ -110,9 +123,14 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/zerkala/",
+              "title": "Зеркала на заказ в {city_prepositional}",
+              "subtitle": "Каталог форм и размеров"
+            },
+            "link2": {
               "href": "{parent_site_url}/zerkala.html",
               "title": "Зеркала на заказ",
-              "subtitle": "Каталог форм и размеров"
+              "subtitle": "Полный каталог на {parent_site}"
             }
           },
           {
@@ -155,6 +173,11 @@
             "image_alt": null,
             "specs": null,
             "link": {
+              "href": "/steklopakety/",
+              "title": "Стеклопакеты в {city_prepositional}: цены",
+              "subtitle": null
+            },
+            "link2": {
               "href": "{parent_site_url}/steklopakety.html",
               "title": "Расчёт стоимости стеклопакетов",
               "subtitle": "Калькулятор на {parent_site}"

@@ -278,13 +278,15 @@ function render_card_grid(array $data, int $si = 0): void
 <?php endif; ?>
 <?php if (!empty($card['link'])): ?>
         <div class="card__actions">
-          <a href="<?= e(t($card['link']['href'] ?? '#')) ?>" class="card__link-parent">
-            <strong><?= e(t($card['link']['title'] ?? '')) ?></strong>
-<?php if (!empty($card['link']['subtitle'])): ?>
-            <span><?= e(t($card['link']['subtitle'])) ?></span>
+<?php foreach (['link', 'link2'] as $lk): if (empty($card[$lk])) { continue; } $lnk = $card[$lk]; ?>
+          <a href="<?= e(t($lnk['href'] ?? '#')) ?>" class="card__link-parent">
+            <strong><?= e(t($lnk['title'] ?? '')) ?></strong>
+<?php if (!empty($lnk['subtitle'])): ?>
+            <span><?= e(t($lnk['subtitle'])) ?></span>
 <?php endif; ?>
             <span class="card__link-arrow">→</span>
           </a>
+<?php endforeach; ?>
         </div>
 <?php endif; ?>
       </div>

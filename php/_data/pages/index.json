@@ -97,9 +97,14 @@
             "image_alt": "Прозрачное листовое стекло М1",
             "specs": null,
             "link": {
+              "href": "/steklo/",
+              "title": "Листовое стекло в {city_prepositional}",
+              "subtitle": "Каталог, цены, наличие"
+            },
+            "link2": {
               "href": "{parent_site_url}/steklo.html",
               "title": "Листовое стекло",
-              "subtitle": "Каталог, цены, наличие"
+              "subtitle": "Полный каталог на {parent_site}"
             }
           },
           {
@@ -112,9 +117,14 @@
             "image_alt": "Зеркало с фацетом в интерьере",
             "specs": null,
             "link": {
+              "href": "/zerkala/",
+              "title": "Зеркала на заказ в {city_prepositional}",
+              "subtitle": "Каталог форм и размеров"
+            },
+            "link2": {
               "href": "{parent_site_url}/zerkala.html",
               "title": "Зеркала на заказ",
-              "subtitle": "Каталог форм и размеров"
+              "subtitle": "Полный каталог на {parent_site}"
             }
           },
           {
@@ -127,9 +137,14 @@
             "image_alt": "Тонированное стекло серое и бронзовое",
             "specs": null,
             "link": {
+              "href": "/steklo/",
+              "title": "Тонированное стекло в {city_prepositional}",
+              "subtitle": "Каталог цветов и толщин"
+            },
+            "link2": {
               "href": "{parent_site_url}/steklo.html",
               "title": "Тонированное стекло",
-              "subtitle": "Каталог цветов и толщин"
+              "subtitle": "Полный каталог на {parent_site}"
             }
           }
         ]
