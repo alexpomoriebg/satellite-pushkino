@@ -24,8 +24,7 @@ function layout_head(string $title, string $description, ?string $canonical = nu
     // B1: суффикс « | Бренд Город» — только если итоговый title укладывается в 70 знаков,
     // иначе отдаём title как в JSON (длинный хвост режется в сниппете, город повторяется дважды).
     $titleSuffix = ' | ' . $companyName . ' ' . $cityName;
-    // B1 (лимит 70 знаков) ОТЛОЖЕН до замера 06.10.2026 — тогда вернуть условие: || mb_strlen($titleResolved . $titleSuffix, 'UTF-8') > 70
-    if (stripos($titleResolved, $companyName) !== false) {
+    if (stripos($titleResolved, $companyName) !== false || mb_strlen($titleResolved . $titleSuffix, 'UTF-8') > 70) {
         $fullTitle = e($titleResolved);
     } else {
         $fullTitle = e($titleResolved . $titleSuffix);
