@@ -135,6 +135,12 @@
       }
     },
     {
+      "type": "custom_html",
+      "data": {
+        "html": "<section class=\"section\"><div class=\"container\"><p>Подробнее: <a href=\"https://steklotrade.com/rezka.html\">резка стекла в размер: цены за рез</a> на сайте Стеклотрейд.</p></div></section>"
+      }
+    },
+    {
       "type": "text_block",
       "data": {
         "heading": "Можно ли отрезать стекло самому",

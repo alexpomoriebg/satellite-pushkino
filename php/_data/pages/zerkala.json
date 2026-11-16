@@ -35,6 +35,12 @@
       }
     },
     {
+      "type": "custom_html",
+      "data": {
+        "html": "<section class=\"section\"><div class=\"container\"><p>Подробнее: <a href=\"https://steklotrade.com/zerkala.html\">подробнее о зеркалах по размерам</a> на сайте Стеклотрейд.</p></div></section>"
+      }
+    },
+    {
       "type": "card_grid",
       "data": {
         "heading": "Какое зеркало выбрать",
