@@ -279,10 +279,10 @@ function layout_foot(): void
           <div class="footer__title">Продукция</div>
           <div style="display:flex;flex-direction:column;gap:.35rem;">
             <a href="/steklo/">Листовое стекло</a>
-            <a href="/produkciya/">Стеклопакеты</a>
+            <a href="/steklopakety/">Стеклопакеты</a>
             <a href="/zerkala/">Зеркала</a>
-            <a href="/uslugi/">Закалённое стекло</a>
-            <a href="/uslugi/">Триплекс</a>
+            <a href="/zakalennoe-steklo.html">Закалённое стекло</a>
+            <a href="/uslugi/">Обработка стекла</a>
           </div>
         </div>
         <div>
